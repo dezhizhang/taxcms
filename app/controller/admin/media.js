@@ -2,7 +2,7 @@
 const fs=require('fs');
 const pump = require('mz-modules/pump');
 const BaseController = require('./base');
-class FocusController extends BaseController {
+class MediaController extends BaseController {
     async index() {
         let result = await this.ctx.model.Focus.find();
         await this.ctx.render('/admin/focus/index',{
@@ -73,4 +73,4 @@ class FocusController extends BaseController {
     }
 }
 
-module.exports = FocusController;
+module.exports = MediaController;
