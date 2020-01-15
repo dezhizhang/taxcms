@@ -17,9 +17,8 @@
                                 <li>  名　　称: <input type="text" name="title"  value="<%=list.title%>"/></li>
                                 <li>  跳转地址: <input type="text" name="link" value="<%=list.link%>"/></li>
                                 <li>  轮 播 图: <input type="file" name="focus_img" style="margin-left: 6px;margin-bottom: 6px;"/>
-                                        <br>
-                                         <img class="image" style="margin-left: 62px;" src="<%=list.focus_img%>"/>
-                                
+                                    <br>
+                                    <img class="image" style="margin-left: 62px;" src="<%=list.focus_img%>"/>
                                 </li>
                                 <li>  排　　序: <input type="text" name="sort" value="<%=list.sort%>"/></li>
                                 <li>  状　　态: <input type="radio" name="status" <%if(list.status == 1){%>checked<%}%>  value="1" id="a"/> 
