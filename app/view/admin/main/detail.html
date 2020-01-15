@@ -1,0 +1,61 @@
+<%- include ../public/header.html %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+            <%- include ../public/aside.html %>        		
+        </div>
+        <div class="col-sm-10">
+            <div class="panel panel-default">              
+			    <div class="panel-heading">
+                    <a class="btn btn-primary">增加详情</a>
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive input-form">
+                        <table class="table table-bordered">
+                            <thead>                                   
+                            <tr class="th">
+                                <th>产品类型</th>
+                                <th>标题</th>
+                                <th>价格</th>  
+                                <th>主打产品图片</th>
+                                <th>排序</th>
+                                <th>增加时间</th>
+                                <th class="text-center">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                              
+                            </tbody>
+                          
+                        </table>
+                        <div id="page" class="pagination" style="float: right;"></div>
+                        <script>
+                           
+                            $('#page').jqPaginator({
+                             
+                                totalPages: 100,
+                                visiblePages: 8,
+                                currentPage:  1,
+                                first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+                                prev: '<li class="prev"><a href="javascript:void(0);">下一页</a></li>',
+                                next: '<li class="next"><a href="javascript:void(0);">上一页</a></li>',
+                                last: '<li class="last"><a href="javascript:void(0);">未页</a></li>',
+                             
+                                onPageChange: function (num, type) {
+                                    console.log('当前第' + num + '页',type);
+                                    if(type=='change'){
+                                        location.href="/admin/main?page="+num;
+                                    }
+                                }
+                            });     
+                        </script>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

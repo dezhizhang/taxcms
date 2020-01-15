@@ -1,0 +1,58 @@
+{
+  "name": "eureka",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "egg": "^2.2.1",
+    "egg-mongo-native": "^3.4.3",
+    "egg-mongoose": "^3.2.0",
+    "egg-scripts": "^2.5.0",
+    "egg-view-ejs": "^2.0.0",
+    "jimp": "^0.8.4",
+    "koa-jsonp": "^2.0.2",
+    "md5": "^2.2.1",
+    "mz-modules": "^2.1.0",
+    "nodemailer": "^6.3.0",
+    "pump": "^3.0.0",
+    "silly-datetime": "^0.1.2",
+    "svg-captcha": "^1.4.0",
+    "uuid": "^3.3.3",
+    "xml2js": "^0.4.22"
+  },
+  "devDependencies": {
+    "autod": "^3.0.1",
+    "autod-egg": "^1.0.0",
+    "egg-bin": "^4.3.5",
+    "egg-ci": "^1.8.0",
+    "egg-mock": "^3.14.0",
+    "eslint": "^4.11.0",
+    "eslint-config-egg": "^6.0.0",
+    "webstorm-disable-index": "^1.2.0"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "scripts": {
+    "start": "egg-scripts start --daemon --title=egg-server-eggdemo01",
+    "stop": "egg-scripts stop --title=egg-server-eggdemo01",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "test-local": "egg-bin test",
+    "cov": "egg-bin cov",
+    "lint": "eslint .",
+    "ci": "npm run lint && npm run cov",
+    "autod": "autod"
+  },
+  "ci": {
+    "version": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "MIT"
+}

@@ -1,0 +1,47 @@
+<% include  ./public/header.html%>
+<!--end header -->
+
+
+<!-- start banner_x -->
+<% include  ./public/banner.html%>
+<!-- end banner_x -->
+
+
+
+	<!-- start danpin -->
+		<div class="danpin center">
+			
+			<div class="biaoti center">小米手机</div>
+			<div class="main center">
+
+				<%for(var i=0;i<goodsList.length;i++){%>
+					<div class="mingxing fl mb20" style="border:2px solid #fff;width:230px;cursor:pointer;" onmouseout="this.style.border='2px solid #fff'" onmousemove="this.style.border='2px solid red'">
+						<div class="sub_mingxing">
+							
+							<a href="/pinfo?id=<%=goodsList[i]._id%>" target="_blank"><img src="<%=goodsList[i].goods_img%>" alt="" /></a>
+						
+						</div>
+						<div class="pinpai"><a href="./xiangqing.html" target="_blank"><%=goodsList[i].title%></a></div>
+						
+						<div class="jiage"><%=goodsList[i].shop_price%>元</div>
+					</div>
+				<%}%>
+			
+			</div>
+			
+			
+		</div>
+		
+
+		<footer class="mt20 center">			
+			<div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>
+			<div>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div> 
+			<div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
+
+		</footer>
+
+	<!-- end danpin -->
+
+
+	</body>
+</html>

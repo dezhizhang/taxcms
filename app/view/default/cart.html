@@ -1,0 +1,151 @@
+<% include  ./public/header.html%>
+<!--end header -->
+<link rel="stylesheet" href="/public/default/css/cart.css" />
+
+<script src="/public/default/js/cart.js"> </script>
+
+<!-- start banner_x -->
+		<div class="banner_x center">
+			<a href="/"><div class="logo fl"></div></a>
+			
+			<div class="wdgwc fl ml40">我的购物车</div>
+			<div class="wxts fl ml20">温馨提示：产品是否购买成功，以最终下单为准哦，请尽快结算</div>
+			<div class="dlzc fr">
+				<ul>
+					<li><a href="./login.html" target="_blank">登录</a></li>
+					<li>|</li>
+					<li><a href="./register.html" target="_blank">注册</a></li>	
+				</ul>
+				
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div class="xiantiao"></div>
+
+		<%if(cartList && cartList.length>0){%>
+
+		<div class="gwcxqbj">
+			<div class="gwcxd center">
+
+
+				
+					<table class="table">
+
+						<tr class="th">
+
+							<th>
+									<input type="checkbox" id="checkAll" />
+									全选
+							</th>
+							<th>
+							商品名称
+							</th>
+							<th>单价</th>
+							<th>数量</th>
+							<th>小计</th>
+							<th>操作</th>
+						</tr>
+					
+				
+						<%for(var i=0;i<cartList.length;i++){%>
+
+						<tr class="cart_list">
+
+								<td>
+										<input type="checkbox" goods_id="<%=cartList[i]._id%>" color="<%=cartList[i].color%>"  <%if(cartList[i].checked){%>checked <%}%> />
+								</td>
+		
+								<td>
+										<div class="col_pic">
+												<img src="<%=cartList[i].goods_img%>" />
+										</div>
+										<div  class="col_title">
+											<%=cartList[i].title%>
+										</div>
+								</td>
+		
+								<td class="price">
+										<%=cartList[i].price%>元
+								</td>
+		
+								<td>
+		
+									<div class="cart_number">
+											<div class="input_left decCart" goods_id="<%=cartList[i]._id%>" color="<%=cartList[i].color%>">-</div>
+		
+											<div class="input_center">
+													<input id="num" name="num" readonly="readonly" type="text" value="<%=cartList[i].num%>" />
+											</div>
+											<div class="input_right incCart" goods_id="<%=cartList[i]._id%>"  color="<%=cartList[i].color%>">+</div>
+									</div>
+									
+								</td>
+		
+								<td class="totalPrice">
+										<%=parseFloat(cartList[i].price)*cartList[i].num%>元
+		
+								</td>
+								<td>
+									<span><a class="delete" href="/removeCart?goods_id=<%=cartList[i]._id%>&color=<%=cartList[i].color%>"> 删除</a></span>
+								</td>
+							</tr>
+					
+						<%}%>
+					</table>
+
+
+
+			</div>
+			<div class="jiesuandan mt20 center">
+				<div class="tishi fl ml20">
+					<ul>
+						<li><a href="./liebiao.html">继续购物</a></li>
+						<li>|</li>
+						<li>共<span>2</span>件商品，已选择<span>1</span>件</li>
+						<div class="clear"></div>
+					</ul>
+				</div>
+				<div class="jiesuan fr">
+					<div class="jiesuanjiage fl">合计（不含运费）：<span id="allPrice"><%=allPrice%>元</span></div>
+					<div class="jsanniu fr"><input class="jsan" type="submit" name="checkout" id="checkout"  value="去结算"/></div>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			
+		</div>
+		<%}else{%>
+
+			<p style="color:red;text-align:center; padding:100px;">购物车空空的</p>
+  
+		<%}%>
+	
+
+		<script>
+		
+		$(function(){
+
+			$("#checkout").click(function(){
+
+				var allPrice=parseFloat($("#allPrice").html());
+
+				if(allPrice==0){
+					alert('购物车没有选中去结算的商品')
+				}else{
+					location.href="/buy/checkout";
+				}
+
+			})
+		})
+		
+		</script>
+	<!-- footer -->
+	<footer class="center">
+			
+			<div class="mt20">小米商城|MIUI|米聊|多看书城|小米路由器|视频电话|小米天猫店|小米淘宝直营店|小米网盟|小米移动|隐私政策|Select Region</div>
+			<div>©mi.com 京ICP证110507号 京ICP备10046444号 京公网安备11010802020134号 京网文[2014]0059-0009号</div> 
+			<div>违法和不良信息举报电话：185-0130-1238，本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</div>
+		</footer>
+
+	</body>
+</html>

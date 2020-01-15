@@ -1,0 +1,85 @@
+<%- include ../public/header.html %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+            <%- include ../public/aside.html %>        		
+        </div>
+        <div class="col-sm-10">
+            <div class="panel panel-default">              
+			    <div class="panel-heading">
+                    产品列表
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive input-form">
+                        <table class="table table-bordered">
+                            <thead>                                   
+                            <tr class="th">
+                                <th>产品类型</th>
+                                <th>标题</th>
+                                <th>价格</th>  
+                                <th>主打产品图片</th>
+                                <th>排序</th>
+                                <th>增加时间</th>
+                                <th class="text-center">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <%for(let i=0;i<list.length;i++){%>
+                                    <tr>
+                                        <td>
+                                            <%if(list[i].main_id == 1){%>
+                                                办公
+                                            <%} else if(list[i].main_id == 2){%>
+                                                设备
+                                            <%} else if(list[i].main_id == 3){%>
+                                                文具
+                                            <%} else{%>
+                                                更多
+                                            <%}%>
+                                        </td>
+                                        <td><%=list[i].title%></td>
+                                        <td><%=list[i].price%></td>
+                                        <td><img src="<%=list[i].main_img%>" style="width: 120px;height:60px"/></td>
+                                        <td><%=list[i].sort%></td>
+                                        <td><%=list[i].add_time%></td>
+                                        <td class="text-center">
+                                            <a href="/admin/main/edit?id=<%=list[i]._id%>"> 修改</a>|
+                                            <a href="/admin/detail?detail_id=<%=list[i]._id%>&type=<%=list[i].type%>">增加详情</a>|
+                                            <a class="delete" href="/admin/main/delete?model=Main&id=<%=list[i]._id%>">删除</a>
+                                        </td>
+                                    </tr>
+                                <%}%>
+                            </tbody>
+                          
+                        </table>
+                        <div id="page" class="pagination" style="float: right;"></div>
+                        <script>
+                           
+                            $('#page').jqPaginator({
+                             
+                                totalPages: 100,
+                                visiblePages: 8,
+                                currentPage:  1,
+                                first: '<li class="first"><a href="javascript:void(0);">首页</a></li>',
+                                prev: '<li class="prev"><a href="javascript:void(0);">下一页</a></li>',
+                                next: '<li class="next"><a href="javascript:void(0);">上一页</a></li>',
+                                last: '<li class="last"><a href="javascript:void(0);">未页</a></li>',
+                             
+                                onPageChange: function (num, type) {
+                                    console.log('当前第' + num + '页',type);
+                                    if(type=='change'){
+                                        location.href="/admin/main?page="+num;
+                                    }
+                                }
+                            });     
+                        </script>
+                    </div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

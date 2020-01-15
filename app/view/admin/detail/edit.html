@@ -1,0 +1,78 @@
+<%- include ../public/header.html %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+            <%- include ../public/aside.html %>        		
+        </div>
+        <div class="col-sm-10">
+            <div class="panel panel-default">              
+			    <div class="panel-heading">
+                  修改商品详情
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive input-form">
+                        <form action="/admin/detail/doEdit?_csrf=<%=csrf%>" method="post">
+                            <ul>
+                                <input type="hidden" name="detail_id" value="<%=detail_id%>"/>
+                                <input type="hidden" name="type" value="<%=type%>"/>
+                                <input type="hidden" name="id" value="<%=list.id%>"/>
+                                <li>  标　　题：<input type="text" name="title" value="<%=title%>" readonly> </li>
+                                <li>  价　　格：<input type="text" name="price" value="<%=list.price%>"/></li>
+                                <li>  运　　费：<input type="text" name="freight" value="<%=list.freight%>"/></li>
+                                <li>  销　　量：<input type="text" name="sales" value="<%=list.sales%>"/></li>
+                                <li>  库　　存：<input type="text" name="inventory" value="<%=list.inventory%>"/></li>
+                                <li>  排　　序：<input type="text" name="sort" value="<%=list.sort%>"/></li>
+                                <li>  轮播图列表：
+                                    <div role="tabpanel" class="tab-pane" id="photo">
+                                        <div id="focusLib" class="photoLib">
+                                           
+                                        </div>
+                                        <div id="photoList"></div>
+                                    </div>
+                                </li>
+                                <li>详情列表：
+                                    <div role="tabpanel" class="tab-pane" id="photo">
+                                        <div id="detailLib" class="photoLib"></div>
+                                        <div id="detailList"></div>
+                                    </div>
+                                </li>
+                                <li>
+                                    <br/>
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+         $(function() {
+            $('#focusLib').diyUpload({
+                url:'/admin/detail/detailUploadImage',                    
+                success:function( response ) {
+                    photoStr='<input type="hidden" name="focus_img[]" value='+response.link+' />';
+                    $('#photoList').append(photoStr);
+                },
+                error:function( err ) {
+                    console.info( err );	
+                }
+            });
+            $('#detailLib').diyUpload({
+                url:'/admin/detail/detailUploadImage',                    
+                success:function( response ) {
+                    photoStr='<input type="hidden" name="detail_img" value='+response.link+' />';
+                    $('#detailList').append(photoStr);
+                },
+                error:function( err ) {
+                    console.info( err );	
+                }
+            });
+         })
+       
+    </script>
+</div>
+
+</body>
+</html>

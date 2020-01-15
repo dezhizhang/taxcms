@@ -1,0 +1,48 @@
+<%- include ../public/header.html %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+            <%- include ../public/aside.html %>
+        </div>
+        <div class="col-sm-10">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr class="th">
+                        <th>角色名称</th>
+                        <th>描述</th>
+                        <th>增加时间</th> 
+                        <th class="text-center">状态</th>                                            
+                        <th class="text-center">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <%for(var i=0;i<list.length;i++){%>
+                        <tr>
+                            <td><%=list[i].title%></td>
+                            <td><%=list[i].description%></td>
+                            <td><%=helper.formatTime(list[i].add_time)%></td>      
+                            <td class="text-center">
+                                <%if(list[i].status == 1){%>
+                                    <img src="/public/admin/images/yes.gif" onclick="app.changeStatus(this,'Role','status','<%=list[i]._id%>')"/>
+                                <%} else{%>
+                                    <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'Role','status','<%=list[i]._id%>')"/>
+                                <%}%>
+                            </td>                   
+                            <td class="text-center">
+                                <a href="/admin/role/auth?id=<%=list[i]._id%>">授权</a>&nbsp;&nbsp;
+                                <a href="/admin/role/edit?id=<%=list[i]._id%>">修改</a> 　
+                                <a class="delete" href="/admin/role/delete?model=Role&id=<%=list[i]._id%>">删除</a>
+                            </td>
+                        </tr>
+                      <%}%>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

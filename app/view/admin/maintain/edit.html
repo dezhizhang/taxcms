@@ -1,0 +1,38 @@
+<%- include ../public/header.html %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+            <%- include ../public/aside.html %>        		
+        </div>
+        <div class="col-sm-10">
+            <div class="panel panel-default">              
+			    <div class="panel-heading">
+                  编辑维修
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive input-form">
+                        <form action="/admin/mantain/doEdit" method="post" enctype="multipart/form-data">
+                            <ul>
+                                <input type="hidden" name="_csrf" value="<%=csrf%>" />
+                                <input type="hidden" name="id" value="<%=list._id%>" />
+                                <li>姓　　名: <input type="text" name="username" value="<%=list.username%>"/></li>
+                                <li>联系电话: <input type="text" name="mobile" value="<%=list.mobile%>"/></li>
+                                <li>联系地址: <input type="text" name="address" value="<%=list.address%>"/></li>
+                                <li>问题描述: <input type="text" name="description" value="<%=list.description%>"/></li>
+                                <li>上传图片: <input type="file" name="image_url"/><br/>
+                                    <img src="<%=list.image_url%>" style="width: 140px;height:80px;display: block;margin-left: 50px;"/>
+                                </li>
+                                <li>
+                                    <br/>
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

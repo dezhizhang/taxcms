@@ -1,0 +1,18 @@
+    <ul class="aside">       
+
+        <%for(let i=0;i<asideList.length;i++) {%>
+            <li>
+               <%if((asideList[i].checked && asideList[i].type == 1) || userInfo.is_super ==1){%>
+                    <h4><%=asideList[i].module_name%><span class="nav_open"></span></h4>
+                    <%for(let j=0;j<asideList[i].items.length;j++){%>
+                        <ul>
+                            <%if((asideList[i].items[j].checked && asideList[i].items[j].type!=3) || (userInfo.is_super ==1 && asideList[i].items[j].type!=3)){%>
+                                <li class="list-group-item"><a target="rightMain" href="<%=asideList[i].items[j].url%>"><%=asideList[i].items[j].action_name%></a></li>    
+                            <%}%>  
+                        </ul>  
+                    <%}%>
+                <%}%>
+            </li>
+        <%}%>
+        
+    </ul>
