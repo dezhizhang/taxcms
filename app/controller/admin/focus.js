@@ -2,22 +2,18 @@
 const fs=require('fs');
 const pump = require('mz-modules/pump');
 const BaseController = require('./base');
-class ClassifyDetailController extends BaseController {
-   
+class FocusController extends BaseController {
     async index() {
-        let { classify_id } = this.ctx.query;
-        let result = await this.ctx.model.ClassifyDetail.find({'classify_id':classify_id});
-        await this.ctx.render('/admin/classifyDetail/index',{
-            list:result,
-            classify_id
-        })
-    }
-    async add() {
-        let { classify_id } = this.ctx.query;
-        await this.ctx.render('/admin/classifyDetail/add',{
-            classify_id
+        let result = await this.ctx.model.Focus.find();
+        await this.ctx.render('/admin/focus/index',{
+            list:result
         });
     }
+    async add() {
+        await this.ctx.render('/admin/focus/add');
+        
+    }
+    //轮播图交数据
     async doAdd() {
         let parts = this.ctx.multipart({ autoFields: true });
         let files = {};               
@@ -35,29 +31,28 @@ class ClassifyDetailController extends BaseController {
             files=Object.assign(files,{
                 [fieldname]:dir.saveDir    
             })
-            await this.service.tools.jimpImg(target,200,200)
             
-        }     
-        let classify_id=parts.field.classify_id; 
-        let classifyDetail =new this.ctx.model.ClassifyDetail(Object.assign(files,parts.field));
-        classifyDetail.save();
-        await this.success(`/admin/classifyDetail?classify_id=${classify_id}`,'增加分类详情成功');
-
+        }      
+        let focus =new this.ctx.model.Focus(Object.assign(files,parts.field));
+        let result=await focus.save();
+        await this.success('/admin/focus','增加轮播图成功');
     }
+    //修改
     async edit() {
-        let { id } = this.ctx.query;
-        let result = await this.ctx.model.ClassifyDetail.find({'_id':id});
-        await this.ctx.render('/admin/classifyDetail/edit',{
+        let id = this.ctx.query.id;
+        let result = await this.ctx.model.Focus.find({'_id':id});
+        await this.ctx.render('/admin/focus/edit',{
             list:result[0]
-        })
+        });
     }
+    //修改提交数据
     async doEdit() {
         let parts = this.ctx.multipart({ autoFields: true });
         let files = {};               
         let stream;
         while ((stream = await parts()) != null) {
             if (!stream.filename) {          
-                break;
+              break;
             }       
             let fieldname = stream.fieldname;  //file表单的名字
             //上传图片的目录
@@ -66,17 +61,16 @@ class ClassifyDetailController extends BaseController {
             let writeStream = fs.createWriteStream(target);
             await pump(stream, writeStream);  
             files=Object.assign(files,{
-                [fieldname]:dir.saveDir    
+              [fieldname]:dir.saveDir    
             })
-            await this.service.tools.jimpImg(target,200,200)
             
-        }     
-        let { id,classify_id } = parts.field; 
-        let updateClassify = await this.ctx.model.ClassifyDetail.updateOne({'_id':id},Object.assign(files,parts.field));
-        await this.success(`/admin/classifyDetail?classify_id=${classify_id}`,'修改分类详情成功');
-
+        }      
+        //修改操作
+        let id=parts.field.id;
+        let updateResult=Object.assign(files,parts.field);
+        let result =await this.ctx.model.Focus.updateOne({"_id":id},updateResult);
+        await this.success('/admin/focus','修改轮播图成功');
     }
-
 }
 
-module.exports = ClassifyDetailController;
+module.exports = FocusController;
