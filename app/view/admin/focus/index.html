@@ -6,18 +6,13 @@
         <div class="col-sm-2">
             <%- include ../public/aside.html %>
         </div>
-        <div class="col-sm-10">
-            <div class="panel panel-default">              
-                    <div class="panel-heading">
-                        轮播图列表
-                    </div>
-                    <div class="panel-body">
+        <div class="col-sm-10"> 
+                <div class="panel-body">
                     <div class="table-responsive">
                         <table class="table table-bordered">
                             <thead>
                             <tr class="th">
                                 <th>名称</th>
-                                <th>分类</th>
                                 <th>图片</th>
                                 <th>跳转地址</th>
                                 <td class="text-center">排序</td>                                            
@@ -29,15 +24,6 @@
                                 <%for(let i=0;i<list.length;i++){%>
                                    <tr>
                                        <td><%=list[i].title%></td>
-                                       <td>
-                                          <%if(list[i].type == 1){%>
-                                            网站
-                                          <%} else if(list[i].type == 2){%>
-                                            APP
-                                          <%} else if(list[i].type == 3){%>
-                                            小程序
-                                          <%}%>
-                                        </td>
                                        <td><img class="image" style="width: 120px;height:60px" src="<%=list[i].focus_img%>"></td>
                                        <td><%=list[i].link%></td>
                                        <td  class="text-center"><span style="cursor: pointer" onclick="app.editNum(this,'Focus','sort','<%=list[i]._id%>')"><%=list[i].sort%></span></td>
@@ -58,7 +44,6 @@
                         </table>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 </div>

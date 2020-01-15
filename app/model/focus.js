@@ -5,8 +5,7 @@ module.exports = app => {
     const Schema = mongoose.Schema;
     const d=new Date();
     const FocusSchema = new Schema({
-      title: { type: String  },
-      type: { type: Number  },   
+      title: { type: String  }, 
       focus_img: { type: String  },   
       link: { type: String  },   
       sort: { type: Number  },   

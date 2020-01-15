@@ -14,13 +14,6 @@
                         <form action="/admin/focus/doEdit?_csrf=<%=csrf%>" method="post" enctype="multipart/form-data">
                             <ul>
                                 <input type="hidden" name="id" value="<%=list._id%>">
-                                <li>  分　　类: 
-                                    <select name="type" id="type" class="select">
-                                        <option <%if(list.type == 1){%>selected<%}%>  value="1">网站</option>
-                                        <option <%if(list.type == 2){%>selected<%}%>  value="2">APP</option>
-                                        <option <%if(list.type == 3){%>selected<%}%>  value="3">小程序</option>
-                                    </select>
-                                </li>
                                 <li>  名　　称: <input type="text" name="title"  value="<%=list.title%>"/></li>
                                 <li>  跳转地址: <input type="text" name="link" value="<%=list.link%>"/></li>
                                 <li>  轮 播 图: <input type="file" name="focus_img" style="margin-left: 6px;margin-bottom: 6px;"/>
