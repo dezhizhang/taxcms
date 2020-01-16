@@ -50,6 +50,7 @@ module.exports = app => {
   router.post('/admin/focus/doEdit',controller.admin.focus.doEdit);
 
   //媒体
+  router.get("/admin/media",controller.admin.media.index);
   router.get("/admin/media/add",controller.admin.media.add);
   router.post("/admin/media/doAdd",controller.admin.media.doAdd);
 

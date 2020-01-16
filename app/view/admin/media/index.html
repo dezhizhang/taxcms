@@ -1,0 +1,47 @@
+<%- include ../public/header.html %>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+            <%- include ../public/aside.html %>
+        </div>
+        <div class="col-sm-10">
+            <div>              
+                    <div class="panel-body">
+                    <div>
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr class="th">
+                                <th>标题</th>
+                                <th>图片</th>
+                                <th>描述</th>
+                                                                         
+                                <th class="text-center">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <%for(let i=0;i<list.length;i++){%>
+                                   <tr>
+                                       <td><%=list[i].title%></td>
+                                      
+                                       <td><img class="image" style="width: 120px;height:60px" src="<%=list[i].media_img%>"></td>
+                                       <td style=" width:600px;height: auto;word-wrap:break-word;word-break:break-all;overflow: hidden;"><%=list[i].description%></td>
+                                          
+                                       <td class="text-center">
+                                           <a href="/admin/focus/edit?id=<%=list[i]._id%>">修改</a>
+                                           <a class="delete" href="/admin/focus/delete?model=Focus&id=<%=list[i]._id%>">删除</a>
+                                       </td>
+                                   </tr>
+                                <%}%>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

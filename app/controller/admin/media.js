@@ -4,12 +4,14 @@ const pump = require('mz-modules/pump');
 const BaseController = require('./base');
 class MediaController extends BaseController {
     async index() {
-        let result = await this.ctx.model.Focus.find();
-        await this.ctx.render('/admin/focus/index',{
+        let result = await this.ctx.model.Media.find();
+        await this.ctx.render('/admin/media/index',{
             list:result
         });
     }
     async add() {
+        console.log("1");
+
         await this.ctx.render('/admin/media/add');
         
     }
