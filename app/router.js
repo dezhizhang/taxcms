@@ -51,6 +51,7 @@ module.exports = app => {
 
   //媒体
   router.get("/admin/media/add",controller.admin.media.add);
+  router.post("/admin/media/doAdd",controller.admin.media.doAdd);
 
   
 //小程序接口

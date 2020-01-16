@@ -33,9 +33,9 @@ class MediaController extends BaseController {
             })
             
         }      
-        let focus =new this.ctx.model.Focus(Object.assign(files,parts.field));
+        let focus =new this.ctx.model.Media(Object.assign(files,parts.field));
         let result=await focus.save();
-        await this.success('/admin/focus','增加轮播图成功');
+        await this.success('/admin/media','增加媒体成功');
     }
     //修改
     async edit() {
