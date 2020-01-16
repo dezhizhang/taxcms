@@ -49,6 +49,9 @@ module.exports = app => {
   router.get('/admin/focus/delete',controller.admin.base.delete);
   router.post('/admin/focus/doEdit',controller.admin.focus.doEdit);
 
+  //媒体
+  router.get("/admin/media/add",controller.admin.media.add);
+
   
 //小程序接口
 //轮播图

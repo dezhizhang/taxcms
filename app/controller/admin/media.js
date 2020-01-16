@@ -10,7 +10,7 @@ class MediaController extends BaseController {
         });
     }
     async add() {
-        await this.ctx.render('/admin/focus/add');
+        await this.ctx.render('/admin/media/add');
         
     }
     //轮播图交数据
