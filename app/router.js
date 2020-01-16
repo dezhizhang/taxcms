@@ -62,14 +62,16 @@ module.exports = app => {
 //小程序接口
 //轮播图
 router.get('/api/v1/focus',controller.api.focus.index);
-//广告图
-router.get('/api/advert/info',controller.api.advert.index);
-//维修接口
-router.post('/api/maintain/upload',controller.api.maintain.upload);
-//热门产品
-router.get('/api/product/hot',controller.api.product.hot);
-//主打产品
-router.get('/api/product/list',controller.api.product.list);
+//媒体
+router.get("/api/v1/media/list",controller.api.media.list);
+// //广告图
+// router.get('/api/advert/info',controller.api.advert.index);
+// //维修接口
+// router.post('/api/maintain/upload',controller.api.maintain.upload);
+// //热门产品
+// router.get('/api/product/hot',controller.api.product.hot);
+// //主打产品
+// router.get('/api/product/list',controller.api.product.list);
 
 
 
