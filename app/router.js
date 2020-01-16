@@ -55,6 +55,7 @@ module.exports = app => {
   router.post("/admin/media/doAdd",controller.admin.media.doAdd);
   router.get("/admin/media/edit",controller.admin.media.edit);
   router.post("/admin/media/doEdit",controller.admin.media.doEdit);
+  router.get("/admin/media/delete",controller.admin.base.delete);
 
 
   
