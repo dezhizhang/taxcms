@@ -10,8 +10,6 @@ class MediaController extends BaseController {
         });
     }
     async add() {
-        console.log("1");
-
         await this.ctx.render('/admin/media/add');
         
     }
@@ -42,8 +40,8 @@ class MediaController extends BaseController {
     //修改
     async edit() {
         let id = this.ctx.query.id;
-        let result = await this.ctx.model.Focus.find({'_id':id});
-        await this.ctx.render('/admin/focus/edit',{
+        let result = await this.ctx.model.Media.find({'_id':id});
+        await this.ctx.render('/admin/Media/edit',{
             list:result[0]
         });
     }
@@ -70,8 +68,8 @@ class MediaController extends BaseController {
         //修改操作
         let id=parts.field.id;
         let updateResult=Object.assign(files,parts.field);
-        let result =await this.ctx.model.Focus.updateOne({"_id":id},updateResult);
-        await this.success('/admin/focus','修改轮播图成功');
+        let result =await this.ctx.model.Media.updateOne({"_id":id},updateResult);
+        await this.success('/admin/media','修改媒体成功');
     }
 }
 

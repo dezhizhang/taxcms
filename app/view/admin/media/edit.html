@@ -1,0 +1,38 @@
+<%- include ../public/header.html %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-2">
+            <%- include ../public/aside.html %>        		
+        </div>
+        <div class="col-sm-10">
+            <div class="panel panel-default">              
+			    <div class="panel-heading">
+                  增加媒体
+                </div>
+                <div class="panel-body">
+                    <div class="table-responsive input-form">
+                        <form action="/admin/media/doEdit?_csrf=<%=csrf%>" method="post" enctype="multipart/form-data">
+                            <input name="id" type="hidden" value="<%=list._id%>"/>
+                            <ul>
+                                <li>  标　　题: <input type="text" name="title" value="<%=list.title%>"/></li>
+                                <li>  图　　片:<input type="file" name="media_img" value="<%=list.media_img%>" style="margin-left: 6px;"/></li>
+                                <li><img style="width: 120px; height: 60px; margin-left: 65px;" src="<%=list.media_img%>"/></li>
+                                <li>  描　　述:	
+                                    <textarea name="description" id="description" style="resize: none" cols="60" rows="8"><%=list.description%></textarea>
+                                </li>
+
+                                <li>
+                                    <br/>
+                                    <button type="submit" class="btn btn-primary">提交</button>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
