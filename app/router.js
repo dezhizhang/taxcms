@@ -76,8 +76,8 @@ router.get('/api/v1/focus',controller.api.focus.index);
 router.get("/api/v1/media/list",controller.api.media.list);
 //媒体详情
 router.get("/api/v1/media/detail/info",controller.api.media.detail);
-// //广告图
-// router.get('/api/advert/info',controller.api.advert.index);
+//广告图
+ router.get('/api/v1/advert/info',controller.api.advert.index);
 // //维修接口
 // router.post('/api/maintain/upload',controller.api.maintain.upload);
 // //热门产品
