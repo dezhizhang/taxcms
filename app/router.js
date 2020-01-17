@@ -57,6 +57,16 @@ module.exports = app => {
   router.post("/admin/media/doEdit",controller.admin.media.doEdit);
   router.get("/admin/media/delete",controller.admin.base.delete);
 
+  //广告管理
+  router.get("/admin/advert",controller.admin.advert.index);
+  router.get("/admin/advert/add",controller.admin.advert.add);
+  router.post("/admin/advert/doAdd",controller.admin.advert.doAdd);
+  router.get("/admin/advert/delete",controller.admin.base.delete);
+  router.get("/admin/advert/edit",controller.admin.advert.edit);
+  router.post("/admin/advert/doEdit",controller.admin.advert.doEdit);
+
+
+
 
   
 //小程序接口
@@ -64,6 +74,8 @@ module.exports = app => {
 router.get('/api/v1/focus',controller.api.focus.index);
 //媒体
 router.get("/api/v1/media/list",controller.api.media.list);
+//媒体详情
+router.get("/api/v1/media/detail/info",controller.api.media.detail);
 // //广告图
 // router.get('/api/advert/info',controller.api.advert.index);
 // //维修接口

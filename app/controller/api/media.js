@@ -11,7 +11,7 @@ class MediaController extends Controller {
             data:result
         }
     }
-    //主打产品
+    //媒体列表
     async list() {
         let page = this.ctx.query.page;
         if(!page) {
@@ -33,6 +33,24 @@ class MediaController extends Controller {
             data:result,
             page,
             totalPage
+        }
+    }
+    //媒体详情
+    async detail() {
+        let { id } = this.ctx.query;
+        if(!id) {
+            this.ctx.body = {
+                code:404,
+                msg:"传入的参数有误",
+                data:null
+            }
+            return
+        }
+        let result = await this.ctx.model.Media.find({"_id":id});
+        this.ctx.body = {
+            code:200,
+            msg:"获取媒体详情成功",
+            data:result[0]
         }
     }
 
