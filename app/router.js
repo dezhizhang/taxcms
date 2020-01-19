@@ -5,8 +5,7 @@
  */
 module.exports = app => {
   const { router, controller } = app;
-  // router.get('/admin',controller.admin.main.index);
-  // router.get('/admin/welcome',controller.admin.main.welcome);
+  
   router.get('/admin/login',controller.admin.login.index);
   router.get('/admin/loginOut',controller.admin.login.loginOut);
   router.get('/admin/verify',controller.admin.base.verify);
@@ -64,6 +63,9 @@ module.exports = app => {
   router.get("/admin/advert/delete",controller.admin.base.delete);
   router.get("/admin/advert/edit",controller.admin.advert.edit);
   router.post("/admin/advert/doEdit",controller.admin.advert.doEdit);
+
+  //用户管理
+  router.get("/admin/user",controller.admin.user.index);
 
   //小程序接口
   //轮播图
