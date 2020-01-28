@@ -1,6 +1,5 @@
 @charset "utf-8";
 /* CSS Document */
-
 *{margin:0;padding:0; font-family:'微软雅黑'}
 a{text-decoration:none; color:#666}
 a:hover{ color:#f94750}
@@ -335,10 +334,5 @@ p.show-time{ background:#f3f4f4; height:35px; line-height:35px; text-align:cente
 .footer .f-nav .main  .addinfo .info-tel{background-image:url("../images/bg.png");background-position:90% 5%;}
 .footer .f-nav .main  .addinfo .info-iphone{background-image:url("../images/bg.png");background-position:91% 18%;}
 
-.footer .compy{width:100%;height:71px;background-color:#0d0f17;}
-.footer .compy .main{width:1200px;height:100%;margin:0 auto;position:relative;}
-.footer .compy .main ul{overflow:hidden;height:100%;line-height:70px;font-size:16px;}
-.footer .compy .main ul li{float:left;margin-left:10px;}
-.footer .compy .main ul li a{color:#e3080d;}
-.footer .compy .main  p{color:#626671;position:absolute;right:0;top:20px;}
-
+.footer .compy{width:100%;height:70px; text-align: center; background: #0d0f17; line-height: 70px;}
+.footer .compy .main{margin:0 auto; text-align: center; width: 100%; height: 100%; color: #626671;}
