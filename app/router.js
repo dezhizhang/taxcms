@@ -84,6 +84,10 @@ module.exports = app => {
   // router.get('/api/product/list',controller.api.product.list);
 
 
+  //前台
+  router.get("/",controller.default.home.index);
+
+
 
 
 

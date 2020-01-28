@@ -1,0 +1,556 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="utf-8" />
+<meta name="robots" content="all" />
+<meta name="author" content="Tencent-ISRD" />
+<meta name="Copyright" content="Tencent" />
+<link rel="stylesheet" type="text/css" href="/public/default/css/css.css">
+<title>首页</title>
+   <script>  
+   	window.onscroll = function () {
+    //获取界面滚动条高度
+		var gdt=document.documentElement.scrollTop || document.body.scrollTop;
+		//获取界面可视区域高度
+		var ksqy=document.documentElement.clientHeight;
+		//alert('滚动条高度'+gdt+'可视区域高度'+ksqy);return 0;
+		if(gdt<=ksqy/2)
+		{
+			$(".evt_nav_right").css('display','none');
+		//滚动条的高度小于或等于可视我区域的高度 左菜单栏隐藏	
+		}else{
+			//滚动条的高度大于可视我区域的高度 左菜单栏显示
+			$(".evt_nav_right").css('display','block');
+			}
+}
+        $(function(){  
+		
+            $(".evt_link").click(function(){
+                $(this).addClass("active");
+                $(this).siblings(".evt_link").removeClass("active");
+            });
+            var mk=$(".mk");
+            var kk=0;
+            $(window).scroll(function(){
+                kk = document.documentElement.scrollTop || document.body.scrollTop;
+                for(var i =0;i<mk.length;i++){
+					if(i==0){
+						$(".evt_link").eq(i).addClass('active');
+						$(".evt_link").eq(i+1).removeClass('active');
+					}
+				  if(kk>mk.eq(i).offset().top){
+					
+						   $(".evt_link").removeClass('active');
+                        $(".evt_link").eq(i+1).addClass('active');
+					 
+                       
+                    }
+                }
+            });
+        });
+    </script> 
+     <style type="text/css" media="screen">  
+        
+        .evt_nav_right{position:fixed;top:100px;left:0px;width:40px;  z-index:9999; background:#515151; display:none}  
+        
+        .evt_nav_right a.active{ background:#3886fa; color:#fff;}
+		.evt_nav_right a{display:inline-block;width:40px; font-size:15px; text-align:center; color:#b1b0b0; padding:10px 0px; line-height:25px}
+		.evt_nav_right a:before{content: "";
+    display: block;
+    margin-top: -10px;margin-bottom:8px;
+    margin-left: 6px;
+    width: 28px;
+    height: 1px;
+    background: #868686;}
+	.evt_nav_right a.db{ background:#cccccc; color:#fff;}
+    </style>   
+</head>
+
+<body>
+<div class="evt_nav_right" style="visibility: visible;">  
+        <a href="#test01" class="evt_link" title="test01">服务<br/>大全</a>  
+        <a href="#test02" class="evt_link" title="test02">推荐<br/>
+服务</a>  
+        <a href="#test03" class="evt_link" title="test03">商标<br/>
+流程</a>  
+        <a href="#test04" class="evt_link" title="test04">我们<br/>
+团队</a>  
+        <a href="#test05" class="evt_link" title="test05">我们<br/>
+优势</a>
+    <a href="#test06" class="evt_link" title="test06">新闻<br/>
+中心</a>
+<a href="javaScript:;" id="hdtop" class="db"><i style="display:block"><img src="images/totop_d74d72a.png"></i>
+顶部</a>
+    </div> 
+    
+<!--头部开始-->
+<div class="herder">
+	<div class="width1200">
+	<div class="logo">
+		<a href="index.html" title="湖南景森知识产权有限公司"><h1 title="湖南景森知识产权有限公司"><img src="images/logo.jpg" alt="湖南景森知识产权有限公司"/></h1></a>
+	</div>
+	<div class="tel">
+		<img src="images/tel.jpg" alt="这是首页的电话号码" title="15387598631" />
+	</div>
+    <div class="clear"></div>
+	<div class="nav">
+		<ul class="headerul">
+			<li class="headerli"><a href="index.html" title="首页">首页</a></li>
+			<li class="headerli bgchart">
+					<a href="1.html" title="工商代办">工商代办</a>
+					<span class="hot"></span>
+					<div class="hover-menu">
+                    	<p><a href="#" title="公司核名">公司核名</a></p>
+                        <p><a href="#" title="注册公司">注册公司</a></p>
+                        <p><a href="#" title="公司变更">公司变更</a></p>
+                        <p><a href="#" title="公司注销">公司注销</a></p>
+                    </div>
+			</li>
+			<li class="headerli bgchart">
+					<a href="2.html" title="代理记账">代理记账</a>
+                    <div class="hover-menu">
+                    	<p><a href="#" title="记账报税">记账报税</a></p>
+                        <p><a href="#" title="财税代办">财税代办</a></p>
+                        <p><a href="#" title="税务筹划">税务筹划</a></p>
+                        <p><a href="#" title="财务审计">财务审计</a></p>
+                    </div>
+					
+					
+			</li>
+			<li class="headerli bgchart">
+					<a href="3.html" title="商标版权">商标版权</a>
+					<span class="hot"></span>
+                    <div class="hover-menu">
+                    	<p><a href="#" title="商标注册">商标注册</a></p>
+                        <p><a href="#" title="商标变更">商标变更</a></p>
+                        <p><a href="#" title="商标续展">商标续展</a></p>
+                        <p><a href="#" title="商标转让">商标转让</a></p>
+                        <p><a href="#" title="商标变更">商标变更</a></p>
+                        <p><a href="#" title="版权登记">版权登记</a></p>
+                        <p><a href="#" title="版权变更">版权变更</a></p>
+                    </div>
+					
+			</li>
+			<li class="headerli bgchart">
+					<a href="4.html" title="专利服务">专利服务</a>
+                    <div class="hover-menu">
+                    	<p><a href="#" title="发明专利">发明专利</a></p>
+                        <p><a href="#" title="实用专利">实用专利</a></p>
+                        <p><a href="#" title="外观专利">外观专利</a></p>
+               
+                    </div>
+					
+					
+			</li>
+			<li class="headerli bgchart">
+					<a href="#" title="交易市场">交易市场</a>
+                    <div class="hover-menu">
+                    	<p><a href="#" title="转让商标">转让商标</a></p>
+                        <p><a href="#" title="转让专利">转让专利</a></p>
+                        <p><a href="#" title="转让公司">转让公司</a></p>
+               
+                    </div>
+					
+					
+			</li>
+			<li class="headerli bgchart">
+					<a href="#" title="新闻中心">新闻中心</a>
+                    <div class="hover-menu">
+                    	<p><a href="#" title="行业新闻">行业新闻</a></p>
+                        <p><a href="#" title="公司新闻">公司新闻</a></p>
+                    </div>
+					
+					
+			</li>
+			<li class="headerli bgchart">
+					<a href="#" title="联系我们">联系我们</a>
+                    <div class="hover-menu">
+                    	<p><a href="#" title="公司介绍">公司介绍</a></p>
+                        <p><a href="#" title="联系方式">联系方式</a></p>
+                  
+                    </div>
+					
+					
+			</li>
+			
+		</ul>
+	</div>
+    </div>
+</div>
+<!--头部结束-->
+
+<!--banner图开始-->
+<div id="banner" style="position:relative; height:599px; overflow:hidden">
+<div style="position:absolute; left:50%; margin-left:-960px">
+	<div class="qianhong-b" >
+				    	<ul class="qianhongpic" style="position: relative; width: 1920px; height: 460px;">
+				            <li style="peft: 0px; top: 0px; display: list-item;"><a href="#" title="">
+								<img src="images/banner1.jpg">
+				            </a></li>
+				            <li style=" left: 0px; top: 0px; display: list-item;"><a href="#" title="">
+								<img src="images/banner2.jpg">
+				            </a></li>
+				            <li style=" left: 0px; top: 0px; display: list-item;"><a href="#" title="">
+								<img src="images/banner3.jpg">
+				            </a></li>
+				        </ul>
+				        <a class="prev" href="javascript:void(0)" style="opacity: 0.07474937499999999; display: none;"></a>
+				        <a class="next" href="javascript:void(0)" style="opacity: 0.07399; display: none;"></a>
+				        <div class="num">
+				        <ul><li class="on">1</li><li class="">2</li><li class="">3</li></ul>
+				      
+				      </div>
+</div>
+                    </div>
+                    <script>
+/*鼠标移过，左右按钮显示*/
+$(".qianhong-b").hover(function(){
+$(this).find(".prev,.next").fadeTo("show",0.1);
+},function(){
+$(this).find(".prev,.next").hide();
+})
+/*鼠标移过某个按钮 高亮显示*/
+$(".prev,.next").hover(function(){
+$(this).fadeTo("show",0.7);
+},function(){
+$(this).fadeTo("show",0.1);
+})
+$(".qianhong-b").slide({ titCell:".num ul" , mainCell:".qianhongpic" , effect:"fold", autoPlay:true, interTime:3000 , autoPage:true });
+</script>
+</div>
+<!--banner图结束-->
+
+<!--产品服务模块开始-->
+<div class="cpmodule mk" id="test01">
+	<div class="main">
+		<ul>
+			<li>
+				<h2>商标注册<em class="fr">→</em></h2>
+				<img src="images/ico01.gif" alt="商标注册"/>
+				<div class="nav-list">
+					<p><span><a href="#" title="商标注册">商标注册</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="#" title="商标变更">商标变更</a></span></p>
+					<p><span><a href="#" title="商标注册">商标续展</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="#" title="商标转让">商标转让</a></span></p>
+					<p><span><a href="#" title="版权登记">版权登记</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="#" title="版权变更">版权变更</a></span></p>
+				</div>
+				<a href="#" alt="" class="zixun">免费咨询</a>
+			</li>
+			<li>
+				<h2>专利申请<em class="fr">→</em></h2>
+				<img src="images/ico02.gif" alt="商标注册"/>
+				<div class="nav-list">
+					<p><span><a href="#" title="发明专利申请">发明专利申请</a></span></p>
+					<p><span><a href="#" title="实用专利申请">实用专利申请</a></span></p>
+					<p><span><a href="#" title="外观设计专利申请">外观设计专利申请</a></span></p>
+				</div>
+				<a href="#" alt="" class="zixun">免费咨询</a>
+			</li>
+			<li>
+				<h2>代理记账<em class="fr">→</em></h2>
+				<img src="images/ico03.gif" alt="商标注册"/>
+				<div class="nav-list">
+					<p><span><a href="#" title="记账报税">记账报税</a></span></p>
+					<p><span><a href="#" title="一般纳税人代理记账">一般纳税人代理记账</a></span></p>
+					<p><span><a href="#" title="小规模代理记账">小规模代理记账</a></span></p>
+				</div>
+				<a href="#" alt="" class="zixun">免费咨询</a>
+			</li>
+			<li>
+				<h2>工商代办<em class="fr">→</em></h2>
+				<img src="images/ico04.gif" alt="商标注册"/>
+				<div class="nav-list">
+					<p><span><a href="#" title="注册公司">注册公司</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="#" title="公司变更">公司变更</a></span></p>
+					<p><span><a href="#" title="公司注销">公司注销</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="#" title="公司注销">公司注销</a></span></p>
+					<p><span><a href="#" title="税务筹划">税务筹划</a></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><a href="#" title="公司核名">公司核名</a></span></p>
+				</div>
+				<a href="#" alt="" class="zixun">免费咨询</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!--产品服务模块结束-->
+<!--优选推荐模块开始-->
+<div class="yxtjmodule mk " id="test02">
+	<div class="main">
+		<div class="title ">
+		  <h2>优选推荐</h2>
+		  <span id="line"></span>
+		</div>
+		<div class="clear"></div>
+		<ul>
+			<li class="img01">
+				<h2>商标注册</h2>
+				<p>
+					商标免费查询，<br/>有效提升注册成功率
+				</p>
+				
+				<a href="#" title="立即查询">立即查询</a>
+				<div class="img"></div>
+			</li>
+			<li class="img02">
+				<h2>专利申请 </h2>
+				<p>
+					抢占市场，保护创新
+				</p>
+			
+				<a href="#" title="立即查询">立即查询</a>
+				<div class="img"></div>
+			</li>
+			<li class="img03">
+				<h2>公司注册</h2>
+				<p>
+					创业无忧，全程代办
+				</p>
+			
+				<a href="#" title="立即查询">立即查询</a>
+				<div class="img"></div>
+			</li>
+		</ul>
+		
+	</div>
+</div>
+<!--优选推荐模块结束-->
+<div class="clear"></div>
+<!--商标注册流程-->
+<div class="shangbiao-box mk" id="test03">
+	<div class="s-title">商标注册流程</div>
+    <div class="width1200">
+    	<ul>
+        	<li class="sli-01">
+            	<span></span>
+                <div class="sli-title">商标查询</div>
+                <p>即使查询，提高成功率</p>
+            </li>
+            <em><img src="images/ico07.png"></em>
+            <li class="sli-02">
+            	<span></span>
+                <div class="sli-title">材料准备</div>
+                <p>核对客户提供资质，
+准备商标注册委托书</p>
+            </li>
+            <em><img src="images/ico07.png"></em>
+            <li class="sli-03">
+            	<span></span>
+                <div class="sli-title">上报申请</div>
+                <p>制作商标资料，并于
+当天提交商标申请</p>
+            </li>
+            <em><img src="images/ico07.png"></em>
+            <li class="sli-04">
+            	<span></span>
+                <div class="sli-title">跟进审查</div>
+                <p>全程监控，第一时间通
+知客户最新审查状态</p>
+            </li>
+            <em><img src="images/ico07.png"></em>
+            <li class="sli-05">
+            	<span></span>
+                <div class="sli-title">获取证书</div>
+                <p>下发《商标注册证》，
+通知客户并邮寄证书。</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--商标注册流程-->
+<!--我们的团队-->
+<div class="main team-box mk" id="test04">
+	<div class="title ">
+		  <h2>我们的团队</h2>
+		  <span id="line"></span>
+		</div>
+      <ul>
+      	<li>
+        	<img src="http://www.yizhihou.net/file/upload/201707/19/144224541.jpg" alt="蔡经理">
+            <p class="team-name">牟小灵</p>
+            <p class="team-zc">公司注销转让咨询<p>
+            <div>从事工商注册行业3年，专业性强，认真负责，为人性格开朗，直爽，做到有问必答</div>
+            <a href="#">立即咨询</a>
+        </li>
+        <li>
+        	<img src="http://www.yizhihou.net/file/upload/201710/17/134952801.jpg" alt="蔡经理">
+            <p class="team-name">文经理</p>
+            <p class="team-zc">注册深圳公司专家顾问<p>
+            <div>从事工商注册多年，积累了丰富的行业知识，为人工作认真负责，诚恳细心，真诚对待每个人，认真对待每个业务，做到时时跟进，完全让您放心</div>
+            <a href="#">立即咨询</a>
+        </li>
+        <li>
+        	<img src="http://www.yizhihou.net/file/upload/201709/19/160449281.jpg" alt="蔡经理">
+            <p class="team-name">蔡经理</p>
+            <p class="team-zc">注册无地域公司专家顾问<p>
+            <div>从事工商注册行业已有3年之余，丰富的实践经验，可为企业提供工商注册全方位的计划，精通熟悉政府操作全流程，办事认真负责，有耐心</div>
+            <a href="#">立即咨询</a>
+        </li>
+      </ul>
+</div>
+<!--我们的团队-->
+<div class="clear"></div>
+<!--我们的优势-->
+<div class="youshi-box mk" id="test05">
+	<div class="main">
+    	<div class="title ">
+		  <h2>我们的优势</h2>
+		  <span id="line"></span>
+		</div>
+        <p class="youshi-t">全程网上办理，名尚选择经验丰富工商代理人，快速为您注册内资公司</p>
+        <ul>
+        	<li style="margin-left:0px">
+            	<span class="y-01"><em></em></span>
+                <p class="y-title">精确商标查询分析</p>
+                <p>商标查询分析能力强，<br/>
+10年专家坐镇</p>
+            </li>
+            <li>
+            	<span class="y-02"><em></em></span>
+                <p class="y-title">专业的服务</p>
+                <p>集聚了长沙工商和知识<br/>
+产权行业50多位资深专家</p>
+            </li>
+            <li>
+            	<span class="y-03"><em></em></span>
+                <p class="y-title">全程监控 确保受理</p>
+                <p>清晰明确流程规范，<br/>
+顾问—流程—财务三级监督</p>
+            </li>
+            <li>
+            	<span class="y-04"><em></em></span>
+                <p class="y-title">集团化运营 安全可靠</p>
+                <p>强大公司实力，保证客户利益<br/>
+视客户利益为企业生命</p>
+            </li>
+            <li>
+            	<span class="y-05"><em></em></span>
+                <p class="y-title">终身服务，无后顾之忧</p>
+                <p>为客户提供免费商标监控服务，<br/>
+遇到的问题提供专业处理意见</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--我们的优势-->
+<!--新闻中心-->
+<div class="news-box main mk" id="test06">
+	<div class="news-title ">新闻中心</div>
+    
+    <div class="news-left">
+    	<div class="tj-news">
+        	<a href="#" title=""><img src="http://www.yizhihou.net/file/upload/201709/18/103906731.jpg" width="290" height="184"></a>
+            <h3><a href="#" title="">生活中，我们总能看到一些简单粗暴
+的广告：“厂家直销，一手最低价拿</a></h3>
+<p>而别的地方标价好几百，甚至好几千，”
+为什么两件完全相同的产品，销售价格却
+相差几十倍！</p>
+        </div>
+        <ul>
+        	<li><a href="#" title="代理记账与兼职会计的差异">代理记账与兼职会计的差异</a><em class="fr">2017-02-03</em></li>
+            <li><a href="#" title="浅谈代理记账公司的必要性">浅谈代理记账公司的必要性</a><em class="fr">2017-02-03</em></li>
+            <li><a href="#" title="慎用网络热词注册公司名">慎用网络热词注册公司名</a><em class="fr">2017-02-03</em></li>
+            <li><a href="#" title="“一带一路”带动中国税收制度">“一带一路”带动中国税收制度</a><em class="fr">2017-02-03</em></li>
+            <li><a href="#" title="网购也是需要发票的！">网购也是需要发票的！</a><em class="fr">2017-02-03</em></li>
+            <li><a href="#" title="《人民的名义》里不能轻易遗漏的税务问题！">《人民的名义》里不能轻易遗漏的税务问题！</a><em class="fr">2017-02-03</em></li>
+            <li><a href="#" title="《人民的名义》熊出没之光头强创业记！">熊出没之光头强创业记</a><em class="fr">2017-02-03</em></li>
+            <li><a href="#" title="4月1日起 长沙启动实名办税">4月1日起 长沙启动实名办税</a><em class="fr">2017-02-03</em></li>
+            <li><a href="#" title="鼓励财税支持 减轻中小企业负担">鼓励财税支持 减轻中小企业负担</a><em class="fr">2017-02-03</em></li>
+        </ul>
+    </div>
+    
+    <!--常见问题-->
+    <div class="problem-box">
+    	<h3>常见问题<a href="http://www.hnweiyue.com/special/list/39/" class="fr">更多》</a></h3>
+        <ul>
+                <li><a href="#" title="外国公司能直接在长沙设立分公司吗？">外国公司能直接在长沙设立分公司吗？</a><a href="#" title="" class="fr">了解详情</a></li>
+                <li><a href="#" title="注册新公司是从一般纳税人开始吗？">注册新公司是从一般纳税人开始吗？</a><a href="#" title="" class="fr">了解详情</a></li>
+                <li><a href="#" title="注册带中国2字的公司名 需要什么条件？">注册带中国2字的公司名 需要什么条件？</a><a href="#" title="" class="fr">了解详情</a></li>
+                <li><a href="#" title="芙蓉区股权变更要收费吗">芙蓉区股权变更要收费吗</a><a href="#" title="" class="fr">了解详情</a></li>
+                <li><a href="#" title="在长沙如何成立合伙企业？">在长沙如何成立合伙企业？</a><a href="#" title="" class="fr">了解详情</a></li>
+                <li><a href="#" title="可以在自己家注册公司吗">可以在自己家注册公司吗</a><a href="#" title="" class="fr">了解详情</a></li>
+                <li><a href="#" title="如何注册家政服务公司">如何注册家政服务公司</a><a href="#" title="" class="fr">了解详情</a></li>
+                <li><a href="#" title="在长沙芙蓉区注册公司 需要注意什么">在长沙芙蓉区注册公司 需要注意什么</a><a href="#" title="" class="fr">了解详情</a></li>
+                <li><a href="#" title="在雨花区办营业执照容易吗？">在雨花区办营业执照容易吗？</a><a href="#" title="" class="fr">了解详情</a></li>
+                                </ul>
+    </div>
+    <!--常见问题-->
+</div>
+<!--新闻中心-->
+<!--广告图-->
+<div class="advance-01 main"><img src="images/advance01.gif"></div>
+<!--广告图-->
+<!--底部开始-->
+<div class="footer">
+	<div class="f-nav">
+		<div class="main">
+			<ul class="nav-ul">
+				<li class="nav-li">
+					<a href="#">工商代办</a>
+					<ul class="ul-list">
+						<li class="nav-list"><a href="#">公司核名</a></li>
+						<li class="nav-list"><a href="#">注册公司</a></li>
+						<li class="nav-list"><a href="#">公司变更</a></li>
+						<li class="nav-list"><a href="#">公司注销</a></li>
+					</ul>
+				</li>
+				<li class="nav-li">
+					<a href="#">代理记账</a>
+					<ul class="ul-list">
+						<li class="nav-list"><a href="#">记账报税</a></li>
+						<li class="nav-list"><a href="#">财税代办</a></li>
+						<li class="nav-list"><a href="#">税务筹划</a></li>
+						<li class="nav-list"><a href="#">财务审计</a></li>
+					</ul>
+				</li>
+				<li class="nav-li">
+					<a href="#">商标版权</a>
+					<ul class="ul-list">
+						<li class="nav-list"><a href="#">商标注册</a></li>
+						<li class="nav-list"><a href="#">商标变更</a></li>
+						<li class="nav-list"><a href="#">商标续展</a></li>
+						<li class="nav-list"><a href="#">商标转让</a></li>
+                        <li class="nav-list"><a href="#">版权登记</a></li>
+						<li class="nav-list"><a href="#">版权变更</a></li>
+                        
+					</ul>
+				</li>
+				<li class="nav-li">
+					<a href="#">专利申请</a>
+					<ul class="ul-list">
+						<li class="nav-list"><a href="#">发明专利</a></li>
+						<li class="nav-list"><a href="#">实用专利</a></li>
+						<li class="nav-list"><a href="#">实用专利</a></li>
+		
+					</ul>
+				</li>
+				<li class="nav-li">
+					<a href="#">关于我们</a>
+					<ul class="ul-list">
+						<li class="nav-list"><a href="#">公司介绍</a></li>
+						<li class="nav-list"><a href="#">联系方式</a></li>
+						<li class="nav-list"><a href="#">新闻中心</a></li>
+						<li class="nav-list"><a href="#">常见问题</a></li>
+					</ul>
+				</li>
+			</ul>
+			<div class="addinfo">
+				<h2>联系我们</h2>
+				<p class="info-tel">0731-8878888</p>
+				<p class="info-iphone">158-7493-7635</p>
+				<p class="address">长沙市雨花区万家丽中路一段358号<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上河国际商业广场C区8号栋1908房</p>
+				
+			</div>
+		</div>
+	</div>
+	<div class="compy">
+		<div class="main">
+		<p>
+			CopyRight@2001-2016   景森知识产权有限公司   湘ICP备15004606号-11 
+		</p>
+		</div>
+	</div>
+</div>
+
+  
+<!--底部开始-->
+</body>
+<script type="text/javascript" src="/public/default/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="/public/default/js/jquery.superslide.2.1.1.js"></script>
+
+</html>
