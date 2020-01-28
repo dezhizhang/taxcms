@@ -19,7 +19,7 @@
 		width: 28px;
 		height: 1px;
 		background: #868686;
-	}
+		}
 	.evt_nav_right a.db{ background:#cccccc; color:#fff;}
     </style>   
 </head>
@@ -33,7 +33,7 @@
     <div class="clear"></div>
 	<div class="nav">
 		<ul class="headerul">
-			<li class="headerli"><a href="/index" title="首页">首页</a></li>
+			<li class="headerli"><a href="index.html" title="首页">首页</a></li>
 			<li class="headerli bgchart">
 					<a href="1.html" title="工商代办">工商代办</a>
 					<span class="hot"></span>
@@ -123,13 +123,13 @@
 	<div class="qianhong-b" >
 				    	<ul class="qianhongpic" style="position: relative; width: 1920px; height: 460px;">
 				            <li style="peft: 0px; top: 0px; display: list-item;"><a href="#" title="">
-								<img src="/public/default/images/banner1.jpg">
+								<img src="images/banner1.jpg">
 				            </a></li>
 				            <li style=" left: 0px; top: 0px; display: list-item;"><a href="#" title="">
-								<img src="/public/default/images/banner2.jpg">
+								<img src="images/banner2.jpg">
 				            </a></li>
 				            <li style=" left: 0px; top: 0px; display: list-item;"><a href="#" title="">
-								<img src="/public/default/images/banner3.jpg">
+								<img src="images/banner3.jpg">
 				            </a></li>
 				        </ul>
 				        <a class="prev" href="javascript:void(0)" style="opacity: 0.07474937499999999; display: none;"></a>
@@ -478,7 +478,7 @@ $(".qianhong-b").slide({ titCell:".num ul" , mainCell:".qianhongpic" , effect:"f
 	<div class="compy">
 		<div class="main">
 		<p>
-			CopyRight@2001-2016   景森知识产权有限公司   湘ICP备15004606号-11 
+			CopyRight@2019-2020   景森知识产权有限公司   湘ICP备15004606号-11 
 		</p>
 		</div>
 	</div>
@@ -489,7 +489,7 @@ $(".qianhong-b").slide({ titCell:".num ul" , mainCell:".qianhongpic" , effect:"f
 </body>
 <script type="text/javascript" src="/public/default/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="/public/default/js/jquery.superslide.2.1.1.js"></script>
-<!-- <script type="text/javascript">  
+<script type="text/javascript">  
 	window.onscroll = function () {
     //获取界面滚动条高度
 	 var gdt=document.documentElement.scrollTop || document.body.scrollTop;
@@ -530,6 +530,21 @@ $(".qianhong-b").slide({ titCell:".num ul" , mainCell:".qianhongpic" , effect:"f
 			 }
 		 });
 	 });
- </script>  -->
+ </script> 
+ <script type="text/javascript">
+	/*鼠标移过，左右按钮显示*/
+	$(".qianhong-b").hover(function(){
+	$(this).find(".prev,.next").fadeTo("show",0.1);
+	},function(){
+	$(this).find(".prev,.next").hide();
+	})
+	/*鼠标移过某个按钮 高亮显示*/
+	$(".prev,.next").hover(function(){
+	$(this).fadeTo("show",0.7);
+	},function(){
+	$(this).fadeTo("show",0.1);
+	})
+	$(".qianhong-b").slide({ titCell:".num ul" , mainCell:".qianhongpic" , effect:"fold", autoPlay:true, interTime:3000 , autoPage:true });
+	</script>
 
 </html>
