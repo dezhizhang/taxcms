@@ -86,6 +86,7 @@ module.exports = app => {
 
   //前台
   router.get("/",controller.default.home.index);
+  router.get("/index",controller.default.home.index);
 
 
 

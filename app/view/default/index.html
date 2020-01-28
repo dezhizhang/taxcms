@@ -7,96 +7,33 @@
 <meta name="author" content="Tencent-ISRD" />
 <meta name="Copyright" content="Tencent" />
 <link rel="stylesheet" type="text/css" href="/public/default/css/css.css">
-<title>首页</title>
-   <script>  
-   	window.onscroll = function () {
-    //获取界面滚动条高度
-		var gdt=document.documentElement.scrollTop || document.body.scrollTop;
-		//获取界面可视区域高度
-		var ksqy=document.documentElement.clientHeight;
-		//alert('滚动条高度'+gdt+'可视区域高度'+ksqy);return 0;
-		if(gdt<=ksqy/2)
-		{
-			$(".evt_nav_right").css('display','none');
-		//滚动条的高度小于或等于可视我区域的高度 左菜单栏隐藏	
-		}else{
-			//滚动条的高度大于可视我区域的高度 左菜单栏显示
-			$(".evt_nav_right").css('display','block');
-			}
-}
-        $(function(){  
-		
-            $(".evt_link").click(function(){
-                $(this).addClass("active");
-                $(this).siblings(".evt_link").removeClass("active");
-            });
-            var mk=$(".mk");
-            var kk=0;
-            $(window).scroll(function(){
-                kk = document.documentElement.scrollTop || document.body.scrollTop;
-                for(var i =0;i<mk.length;i++){
-					if(i==0){
-						$(".evt_link").eq(i).addClass('active');
-						$(".evt_link").eq(i+1).removeClass('active');
-					}
-				  if(kk>mk.eq(i).offset().top){
-					
-						   $(".evt_link").removeClass('active');
-                        $(".evt_link").eq(i+1).addClass('active');
-					 
-                       
-                    }
-                }
-            });
-        });
-    </script> 
-     <style type="text/css" media="screen">  
-        
+<title>报税系统</title> 
+	<style type="text/css" media="screen">  
         .evt_nav_right{position:fixed;top:100px;left:0px;width:40px;  z-index:9999; background:#515151; display:none}  
-        
         .evt_nav_right a.active{ background:#3886fa; color:#fff;}
 		.evt_nav_right a{display:inline-block;width:40px; font-size:15px; text-align:center; color:#b1b0b0; padding:10px 0px; line-height:25px}
 		.evt_nav_right a:before{content: "";
-    display: block;
-    margin-top: -10px;margin-bottom:8px;
-    margin-left: 6px;
-    width: 28px;
-    height: 1px;
-    background: #868686;}
+		display: block;
+		margin-top: -10px;margin-bottom:8px;
+		margin-left: 6px;
+		width: 28px;
+		height: 1px;
+		background: #868686;
+	}
 	.evt_nav_right a.db{ background:#cccccc; color:#fff;}
     </style>   
 </head>
-
 <body>
-<div class="evt_nav_right" style="visibility: visible;">  
-        <a href="#test01" class="evt_link" title="test01">服务<br/>大全</a>  
-        <a href="#test02" class="evt_link" title="test02">推荐<br/>
-服务</a>  
-        <a href="#test03" class="evt_link" title="test03">商标<br/>
-流程</a>  
-        <a href="#test04" class="evt_link" title="test04">我们<br/>
-团队</a>  
-        <a href="#test05" class="evt_link" title="test05">我们<br/>
-优势</a>
-    <a href="#test06" class="evt_link" title="test06">新闻<br/>
-中心</a>
-<a href="javaScript:;" id="hdtop" class="db"><i style="display:block"><img src="images/totop_d74d72a.png"></i>
-顶部</a>
-    </div> 
-    
 <!--头部开始-->
 <div class="herder">
 	<div class="width1200">
 	<div class="logo">
-		<a href="index.html" title="湖南景森知识产权有限公司"><h1 title="湖南景森知识产权有限公司"><img src="images/logo.jpg" alt="湖南景森知识产权有限公司"/></h1></a>
-	</div>
-	<div class="tel">
-		<img src="images/tel.jpg" alt="这是首页的电话号码" title="15387598631" />
+		<a href="index.html" title="荣屿财税"><h1 title="荣屿财税"><img src="/public/default/images/logo.jpg" alt="荣屿财税"/></h1></a>
 	</div>
     <div class="clear"></div>
 	<div class="nav">
 		<ul class="headerul">
-			<li class="headerli"><a href="index.html" title="首页">首页</a></li>
+			<li class="headerli"><a href="/index" title="首页">首页</a></li>
 			<li class="headerli bgchart">
 					<a href="1.html" title="工商代办">工商代办</a>
 					<span class="hot"></span>
@@ -186,13 +123,13 @@
 	<div class="qianhong-b" >
 				    	<ul class="qianhongpic" style="position: relative; width: 1920px; height: 460px;">
 				            <li style="peft: 0px; top: 0px; display: list-item;"><a href="#" title="">
-								<img src="images/banner1.jpg">
+								<img src="/public/default/images/banner1.jpg">
 				            </a></li>
 				            <li style=" left: 0px; top: 0px; display: list-item;"><a href="#" title="">
-								<img src="images/banner2.jpg">
+								<img src="/public/default/images/banner2.jpg">
 				            </a></li>
 				            <li style=" left: 0px; top: 0px; display: list-item;"><a href="#" title="">
-								<img src="images/banner3.jpg">
+								<img src="/public/default/images/banner3.jpg">
 				            </a></li>
 				        </ul>
 				        <a class="prev" href="javascript:void(0)" style="opacity: 0.07474937499999999; display: none;"></a>
@@ -552,5 +489,47 @@ $(".qianhong-b").slide({ titCell:".num ul" , mainCell:".qianhongpic" , effect:"f
 </body>
 <script type="text/javascript" src="/public/default/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript" src="/public/default/js/jquery.superslide.2.1.1.js"></script>
+<!-- <script type="text/javascript">  
+	window.onscroll = function () {
+    //获取界面滚动条高度
+	 var gdt=document.documentElement.scrollTop || document.body.scrollTop;
+	 //获取界面可视区域高度
+	 var ksqy=document.documentElement.clientHeight;
+	 //alert('滚动条高度'+gdt+'可视区域高度'+ksqy);return 0;
+	 if(gdt<=ksqy/2)
+	 {
+		 $(".evt_nav_right").css('display','none');
+	 //滚动条的高度小于或等于可视我区域的高度 左菜单栏隐藏	
+	 }else{
+		 //滚动条的高度大于可视我区域的高度 左菜单栏显示
+		 $(".evt_nav_right").css('display','block');
+		 }
+}
+	 $(function(){  
+	 
+		 $(".evt_link").click(function(){
+			 $(this).addClass("active");
+			 $(this).siblings(".evt_link").removeClass("active");
+		 });
+		 var mk=$(".mk");
+		 var kk=0;
+		 $(window).scroll(function(){
+			 kk = document.documentElement.scrollTop || document.body.scrollTop;
+			 for(var i =0;i<mk.length;i++){
+				 if(i==0){
+					 $(".evt_link").eq(i).addClass('active');
+					 $(".evt_link").eq(i+1).removeClass('active');
+				 }
+			   if(kk>mk.eq(i).offset().top){
+				 
+						$(".evt_link").removeClass('active');
+					 $(".evt_link").eq(i+1).addClass('active');
+				  
+					
+				 }
+			 }
+		 });
+	 });
+ </script>  -->
 
 </html>
