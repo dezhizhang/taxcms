@@ -78,6 +78,8 @@ module.exports = app => {
   router.get('/api/v1/advert/info',controller.api.advert.index);
   //验证码
   router.get("/api/v1/user/code",controller.api.user.code);
+  //用户注册
+  router.post("/api/v1/user/register",controller.api.user.add);
   
   //前台
   //首页

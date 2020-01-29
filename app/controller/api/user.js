@@ -5,6 +5,8 @@ const Controller = require('egg').Controller;
 class UserController extends Controller {
     async code() {
         let that = this;
+        let code = Math.random().toString().slice(-6);
+        this.ctx.session.phoneCode = code;
         let { phone } = this.ctx.query;
         let client = new Core({
             accessKeyId: 'LTAI4FnT1q6ZHvd7SXB1MtgF',
@@ -17,7 +19,7 @@ class UserController extends Controller {
             "PhoneNumbers": phone,
             "SignName": "荣屿财税",
             "TemplateCode": "SMS_182870703",
-            "TemplateParam": "{\"code\":\"246830\"}"
+            "TemplateParam": `{\"code\":\"${code}\"}`
         }
     
         let requestOption = {
@@ -42,6 +44,8 @@ class UserController extends Controller {
     }
     //增加用户
     async add() {
+        let phoneCode = this.ctx.session;
+        console.log( this.ctx.session);
 
     }
 
