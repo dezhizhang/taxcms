@@ -76,14 +76,7 @@ module.exports = app => {
   router.get("/api/v1/media/detail/info",controller.api.media.detail);
   //广告图
   router.get('/api/v1/advert/info',controller.api.advert.index);
-  // //维修接口
-  // router.post('/api/maintain/upload',controller.api.maintain.upload);
-  // //热门产品
-  // router.get('/api/product/hot',controller.api.product.hot);
-  // //主打产品
-  // router.get('/api/product/list',controller.api.product.list);
-
-
+  
   //前台
   //首页
   router.get("/",controller.default.home.index);

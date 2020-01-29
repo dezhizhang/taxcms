@@ -35,10 +35,8 @@ position:absolute;
   height:0;
   border:9px solid transparent;
   border-right:9px solid #c2c2c2;
-  border-bottom:9px solid #c2c2c2;
-  
-  }
-
+  border-bottom:9px solid #c2c2c2;  
+}
 .nav .headerul .bgchart .z-nav{width:100%;height:100px;background-color:red;position:absolute;left:0;top:0;z-index:100;}
 .nav .headerul .headerli a{color:#666;text-decoration:none;display:block;}
 .nav .headerul .headerli a:hover{color:#c7100b;}
@@ -49,20 +47,16 @@ position:absolute;
   height:0;
   border:9px solid transparent;
   border-right:9px solid #e71f19;
-  border-bottom:9px solid #e71f19;}
+  border-bottom:9px solid #e71f19;
+}
 
 /*banner*/
 #banner{width:100%;height:auto;}
-
 .qianhong-b{ width: 100%; height:599px; margin:0px auto; position: relative; overflow:hidden; margin-bottom: 8px; z-index:50;}
-			/*æ•°å­—æŒ‰é’®æ ·å¼*/
 .qianhong-b .num { overflow:hidden; height: 22px; position: absolute; bottom:12px; left: 45%; zoom:1; z-index:3 }
 .qianhong-b .num li { width: 60px; height: 8px; line-height: 8px; text-align: center; font-weight: 400; font-family: "微软雅黑", Arial; background: #ffffff; color:#ffffff; margin-right: 8px;margin-left: 8px; cursor:pointer; float: left; font-size:3px;}
-.qianhong-b .num li.on { background: #bf0b18; color:#bf0b18;} /*å½“å‰é¡¹*/
+.qianhong-b .num li.on { background: #bf0b18; color:#bf0b18;}
 .qianhong-b .num p{ line-height:25px;text-shadow: #c2c1c1 0 1px 0;}
-
-
-
 
 .cpmodule{width:100%;height:426px;background-color:#f4f2f2;margin-top:24px;font-family:'微软雅黑';}
 .cpmodule .main{width:1200px;margin-top:17px;margin:0 auto;}
