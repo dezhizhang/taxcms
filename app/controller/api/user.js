@@ -4,6 +4,7 @@ const Controller = require('egg').Controller;
 
 class UserController extends Controller {
     async code() {
+        let that = this;
         let { phone } = this.ctx.query;
         let client = new Core({
             accessKeyId: 'LTAI4FnT1q6ZHvd7SXB1MtgF',
@@ -11,29 +12,33 @@ class UserController extends Controller {
             endpoint: 'https://dysmsapi.aliyuncs.com',
             apiVersion: '2017-05-25'
         });
-            
         let params = {
             "RegionId": "cn-hangzhou",
-            "SignName": "荣屿财税",
             "PhoneNumbers": phone,
-            "TemplateCode": "SMS_182870703"
+            "SignName": "荣屿财税",
+            "TemplateCode": "SMS_182870703",
+            "TemplateParam": "{\"code\":\"246830\"}"
         }
-            
+    
         let requestOption = {
             method: 'POST'
         };
-      
-            
         client.request('SendSms', params, requestOption).then((result) => {
-            console.log(JSON.stringify(result));
+            if(result.Code == 'Ok') {
+                that.ctx.body = {
+                    code:200,
+                    msg:"发送验证码成功",
+                    data:null
+                }
+            }
         }, (ex) => {
-            console.log(ex);
-        });
-        this.ctx.body = {
-            code:200,
-            msg:'发送验证成功',
-            data:null
-        }
+            that.ctx.body = {
+                code:400,
+                msg:"发道验证码失败",
+                data:null
+            }
+        })
+        
     }
     //增加用户
     async add() {
