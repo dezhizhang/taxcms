@@ -6,8 +6,8 @@ class UserController extends Controller {
     async code() {
         let { phone } = this.ctx.query;
         let client = new Core({
-            accessKeyId: '<accessKeyId>',
-            accessKeySecret: '<accessSecret>',
+            accessKeyId: 'LTAI4FnT1q6ZHvd7SXB1MtgF',
+            accessKeySecret: 'wNxsBibCVEeoaO9Ff2YHZ7X94nHYkH',
             endpoint: 'https://dysmsapi.aliyuncs.com',
             apiVersion: '2017-05-25'
         });
@@ -15,12 +15,14 @@ class UserController extends Controller {
         let params = {
             "RegionId": "cn-hangzhou",
             "SignName": "荣屿财税",
+            "PhoneNumbers": phone,
             "TemplateCode": "SMS_182870703"
         }
             
         let requestOption = {
             method: 'POST'
         };
+      
             
         client.request('SendSms', params, requestOption).then((result) => {
             console.log(JSON.stringify(result));
