@@ -80,6 +80,8 @@ module.exports = app => {
   router.get("/api/v1/user/code",controller.api.user.code);
   //用户注册
   router.post("/api/v1/user/register",controller.api.user.add);
+  //用户登录
+  router.post("/api/v1/user/login",controller.api.user.login);
   
   //前台
   //首页

@@ -73,6 +73,27 @@ class UserController extends Controller {
             }
         }
     }
+    //用户登录
+    async login() {
+        let { phone,password } = this.ctx.request.body;
+        let data = await this.ctx.model.User.find({
+            "phone":phone,
+            "password":password
+        });
+        if(data.length > 0) {
+            this.ctx.body = {
+                code:200,
+                msg:"登录成功",
+                data:null
+            }
+        } else {
+            this.ctx.body = {
+                code:400,
+                msg:'手机号或密码不正确',
+                data:null
+            }
+        }
+    }
 
 }
 
