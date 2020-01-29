@@ -85,8 +85,13 @@ module.exports = app => {
 
 
   //前台
+  //首页
   router.get("/",controller.default.home.index);
   router.get("/index",controller.default.home.index);
+  //工商
+  router.get("/work",controller.default.work.index);
+  //代理记帐
+  router.get("/account",controller.default.account.index);
 
 
 
