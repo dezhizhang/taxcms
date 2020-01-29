@@ -92,6 +92,8 @@ module.exports = app => {
   router.get("/work",controller.default.work.index);
   //代理记帐
   router.get("/account",controller.default.account.index);
+  //商标版权
+  router.get("/mark",controller.default.mark.index);
 
 
 
