@@ -76,6 +76,8 @@ module.exports = app => {
   router.get("/api/v1/media/detail/info",controller.api.media.detail);
   //广告图
   router.get('/api/v1/advert/info',controller.api.advert.index);
+  //验证码
+  router.get("/api/v1/user/code",controller.api.user.code);
   
   //前台
   //首页

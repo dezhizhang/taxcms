@@ -4,6 +4,7 @@
   "description": "",
   "private": true,
   "dependencies": {
+    "@alicloud/sms-sdk": "^1.1.6",
     "cheerio": "^1.0.0-rc.3",
     "egg": "^2.2.1",
     "egg-mongo-native": "^3.4.3",
