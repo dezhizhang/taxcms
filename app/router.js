@@ -90,18 +90,6 @@ module.exports = app => {
   //专利
   router.get("/patent",controller.default.patent.index);
 
-
-
-
-
-   
-
-
- 
-
-
-
-
 };
 
 
