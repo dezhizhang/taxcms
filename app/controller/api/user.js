@@ -6,8 +6,6 @@ class UserController extends Controller {
     async code() {
         let code = Math.random().toString().slice(-6);
         await this.app.redis.set("phone_code",code);
-       
-        
         let { phone } = this.ctx.query;
         let client = new Core({
             accessKeyId: 'LTAI4FnT1q6ZHvd7SXB1MtgF',
@@ -32,13 +30,13 @@ class UserController extends Controller {
         }, (ex) => {
             this.ctx.body = {
                 code:400,
-                msg:"发道验证码失败",
+                msg:"发送验证码失败",
                 data:null
             }
         });
         this.ctx.body = {
             code:200,
-            msg:"发道验证码成功",
+            msg:"发送验证码成功",
             data:null
 
         }
