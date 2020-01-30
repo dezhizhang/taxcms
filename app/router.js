@@ -94,6 +94,7 @@ module.exports = app => {
   //公司详情
   router.get("/api/v1/company/detail",controller.api.company.detail);
   
+  
   //前台
   //首页
   router.get("/",controller.default.home.index);

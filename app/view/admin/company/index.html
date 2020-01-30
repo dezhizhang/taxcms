@@ -26,7 +26,7 @@
                                         <td><%=list[i].name%></td>
                                         <td><img style="width: 120px;height:60px" src="<%=list[i].company_url%>"/></td>
                                         <td><%=list[i].sort%></td>
-                                        <td><%=list[i].description%></td>
+                                        <td style="max-width: 400px; overflow: hidden;"><%=list[i].description%></td>
                                         <td><%=helper.formatTime(list[i].add_time)%></td>
                                         <td  class="text-center">
                                             <a href="/admin/company/edit?id=<%=list[i]._id%>">修改</a>|
