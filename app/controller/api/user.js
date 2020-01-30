@@ -4,9 +4,9 @@ const Controller = require('egg').Controller;
 
 class UserController extends Controller {
     async code() {
-        let that = this;
         let code = Math.random().toString().slice(-6);
         await this.app.redis.set("phone_code",code);
+       
         
         let { phone } = this.ctx.query;
         let client = new Core({
@@ -26,34 +26,36 @@ class UserController extends Controller {
         let requestOption = {
             method: 'POST'
         };
+       
         client.request('SendSms', params, requestOption).then((result) => {
-            if(result.Code == 'Ok') {
-                that.ctx.body = {
-                    code:200,
-                    msg:"发送验证码成功",
-                    data:null
-                }
-            }
+           
         }, (ex) => {
-            that.ctx.body = {
+            this.ctx.body = {
                 code:400,
                 msg:"发道验证码失败",
                 data:null
             }
-        })
+        });
+        this.ctx.body = {
+            code:200,
+            msg:"发道验证码成功",
+            data:null
+
+        }
         
     }
     //增加用户
     async add() {
         let result = this.ctx.request.body;
-        let phone = result.phone;
+        result.password = await this.service.tools.md5(result.password);
         let phone_code = await this.app.redis.get("phone_code");
-        if(result.phone_code == phone_code) {
+        let phone = result.phone;
+        if(phone_code == result.phone_code) {
             let data = await this.ctx.model.User.find({"phone":phone});
             if(data.length > 0) {
                 this.ctx.body = {
                     code:404,
-                    msg:"手机号以被注册过",
+                    msg:"手机号以被注册",
                     data:null
                 }
             } else {
@@ -64,21 +66,24 @@ class UserController extends Controller {
                     msg:"注册成功",
                     data:null
                 }
+
             }
         } else {
             this.ctx.body = {
                 code:404,
-                msg:"验证码错误",
+                msg:"验证码有误",
                 data:null
             }
         }
+       
     }
     //用户登录
     async login() {
         let { phone,password } = this.ctx.request.body;
+        let newpassword = await this.service.tools.md5(password)
         let data = await this.ctx.model.User.find({
             "phone":phone,
-            "password":password
+            "password":newpassword
         });
         if(data.length > 0) {
             this.ctx.body = {

@@ -54,7 +54,7 @@ module.exports = appInfo => {
     listen: {
       path: '',
       port: 7001,
-      hostname: 'localhost',
+      hostname: '192.168.101.7',
     }
 };
 
