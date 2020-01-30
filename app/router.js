@@ -91,6 +91,8 @@ module.exports = app => {
   router.post("/api/v1/user/login",controller.api.user.login);
   //公司列表
   router.get("/api/v1/company/list",controller.api.company.index);
+  //公司详情
+  router.get("/api/v1/company/detail",controller.api.company.detail);
   
   //前台
   //首页

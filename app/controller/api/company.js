@@ -15,8 +15,25 @@ class MainController extends Controller {
             totalPages:totalPages,
             page:page
         }
-       
-       
+    
+    }
+    //公司详情
+    async detail() {
+        let { id } = this.ctx.query;
+        if(id) {
+            let result = await this.ctx.model.Company.find({"_id":id});
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:result[0]
+            }
+        } else {
+            this.ctx.body = {
+                code:404,
+                msg:"传入参数有误",
+                data:null
+            }
+        }
     }
 
 }
