@@ -66,6 +66,13 @@ module.exports = app => {
 
   //用户管理
   router.get("/admin/user",controller.admin.user.index);
+  //公司管理
+  router.get("/admin/company",controller.admin.company.index);
+  router.get("/admin/company/add",controller.admin.company.add);
+  router.post("/admin/company/doAdd",controller.admin.company.doAdd);
+  router.get("/admin/company/delete",controller.admin.base.delete);
+  router.get("/admin/company/edit",controller.admin.company.edit);
+  router.post("/admin/company/doEdit",controller.admin.company.doEdit);
 
   //小程序接口
   //轮播图
