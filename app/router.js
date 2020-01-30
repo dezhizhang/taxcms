@@ -80,7 +80,7 @@ module.exports = app => {
   //媒体
   router.get("/api/v1/media/list",controller.api.media.list);
   //媒体详情
-  router.get("/api/v1/media/detail/info",controller.api.media.detail);
+  router.get("/api/v1/media/detail",controller.api.media.detail);
   //广告图
   router.get('/api/v1/advert/info',controller.api.advert.index);
   //验证码
