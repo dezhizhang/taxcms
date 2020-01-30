@@ -74,7 +74,7 @@ class ProductController extends BaseController {
         }      
         let id=parts.field.id;
         let updateResult=Object.assign(files,parts.field);
-        let product =await this.ctx.model.Company.updateOne({'_id':id},updateResult);
+        let company =await this.ctx.model.Company.updateOne({'_id':id},updateResult);
         await this.success('/admin/company','修改公司成功');
     }
    
