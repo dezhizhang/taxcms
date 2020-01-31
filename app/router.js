@@ -66,6 +66,7 @@ module.exports = app => {
 
   //用户管理
   router.get("/admin/user",controller.admin.user.index);
+  
   //公司管理
   router.get("/admin/company",controller.admin.company.index);
   router.get("/admin/company/add",controller.admin.company.add);
@@ -94,7 +95,8 @@ module.exports = app => {
   //公司详情
   router.get("/api/v1/company/detail",controller.api.company.detail);
   //获取用户信息
-  router.get("/api/v1/company/user/info",controller.api.user.userInfo)
+  router.get("/api/v1/company/user/info",controller.api.user.userInfo);
+
   
   
   //前台

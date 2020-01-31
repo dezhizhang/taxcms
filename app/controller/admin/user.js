@@ -3,7 +3,7 @@
 const BaseController = require('./base');
 class UserController extends BaseController {
     async index() {
-       console.log("1");
+        await this.ctx.render("/admin/user/index")
     }
 
    

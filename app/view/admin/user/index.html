@@ -5,46 +5,27 @@
             <%- include ../public/aside.html %>        		
         </div>
         <div class="col-sm-10">
-            <div class="panel panel-default">              
-			    <div class="panel-heading">
-                    产品列表
-                </div>
+            <div>
                 <div class="panel-body">
                     <div class="table-responsive input-form">
                         <table class="table table-bordered">
                             <thead>                                   
                             <tr class="th">
-                                <th>产品类型</th>
-                                <th>价格</th>  
-                                <th>产品图片</th>
-                                <th>排序</th>
+                                <th>呢称</th>
+                                <th>企业名称</th>  
+                                <th>社会信用代码</th>
+                                <th>注册地址</th>
+                                <th>联系人</th>
+                                <th>手机号</th>
+                                <th>提交时间</th>
+                                <th>报税时间</th>
+                                <th>状态</th>
                                 <th>描述</th>
-                                <th>增加时间</th>
                                 <th class="text-center">操作</th>
                             </tr>
                             </thead>
                             <tbody>
-                               <%for(let i=0;i<list.length;i++){%>
-                                    <tr>
-                                        <td>
-                                            <%if(list[i].product_type == 1){%>
-                                                热门产品
-                                            <%} else{%>
-                                                主打产品
-                                            <%}%>
-                                        </td>
-                                        <td><%=list[i].price%></td>
-                                        <td><img style="width: 120px;height:60px" src="<%=list[i].product_url%>"/></td>
-                                        <td><%=list[i].sort%></td>
-                                        <td><%=list[i].description%></td>
-                                        <td><%=helper.formatTime(list[i].add_time)%></td>
-                                        <td  class="text-center">
-                                            <a href="/admin/product/edit?id=<%=list[i]._id%>">修改</a>|
-                                            <a href="/admin/detail?detail_id=<%=list[i]._id%>&type=2">增加详情</a>|
-                                            <a class="delete" href="/admin/product/delete?id=<%=list[i]._id%>&model=Product">删除</a>
-                                        </td>
-                                    </tr>
-                               <%}%>
+                               
                             </tbody>
                         </table>
                         <div id="page" class="pagination" style="float: right;"></div>

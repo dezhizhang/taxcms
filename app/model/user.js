@@ -7,6 +7,19 @@ module.exports = app => {
         password:{ type:String },
         phone:{ type:String },
         userName:{ type:String },
+        companyName:{ type:String },
+        socialCode:{ type:String },
+        address:{ type:String },
+        contact:{ type:String },
+        inform_time:{
+            type:Number,
+            default:d.getTime()
+        },
+        description:{ type:String },
+        status:{
+            type:Number,
+            default:1  //1表示未完成,2表示完成
+        },
         add_time:{
             type:Number,
             default:d.getTime()
