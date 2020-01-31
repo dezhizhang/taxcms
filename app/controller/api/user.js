@@ -83,21 +83,31 @@ class UserController extends Controller {
     async login() {
         let { phone,password } = this.ctx.request.body;
         let newpassword = await this.service.tools.md5(password)
-        let data = await this.ctx.model.User.find({
-            "phone":phone,
-            "password":newpassword
-        });
+        let data = await this.ctx.model.User.find({"phone":phone});
         if(data.length > 0) {
-            this.ctx.body = {
-                code:200,
-                msg:"登录成功",
-                data:data[0]
+            let result = await this.ctx.model.User.find({"phone":phone,"password":newpassword});
+            if(result.length > 0) {
+                this.ctx.body = {
+                    code:200,
+                    msg:"登录成功",
+                    data:result[0],
+                    isReg:true
+                }
+            } else {
+                this.ctx.body = {
+                    code:400,
+                    msg:"密码不正确",
+                    data:null,
+                    isReg:true
+                }
             }
+           
         } else {
             this.ctx.body = {
                 code:400,
-                msg:'手机号或密码不正确',
-                data:null
+                msg:'你还没有注册',
+                data:null,
+                isReg:false
             }
         }
     }
