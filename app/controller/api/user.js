@@ -91,7 +91,7 @@ class UserController extends Controller {
             this.ctx.body = {
                 code:200,
                 msg:"登录成功",
-                data:null
+                data:data[0]
             }
         } else {
             this.ctx.body = {
@@ -100,6 +100,25 @@ class UserController extends Controller {
                 data:null
             }
         }
+    }
+    //获取用户信息
+    async userInfo() {
+        let { id } = this.ctx.query;
+        if(id) {
+            let result = await this.ctx.model.User.find({"_id":id});
+            this.ctx.body = {
+                code:200,
+                msg:"SUCCESS",
+                data:result[0]
+            } 
+        } else {
+            this.ctx.body = {
+                code:404,
+                msg:"传入的参数有误",
+                data:null
+            }
+        }
+        
     }
 
 }

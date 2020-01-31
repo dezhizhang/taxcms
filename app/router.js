@@ -93,6 +93,8 @@ module.exports = app => {
   router.get("/api/v1/company/list",controller.api.company.index);
   //公司详情
   router.get("/api/v1/company/detail",controller.api.company.detail);
+  //获取用户信息
+  router.get("/api/v1/company/user/info",controller.api.user.userInfo)
   
   
   //前台

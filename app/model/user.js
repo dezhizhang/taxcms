@@ -6,6 +6,7 @@ module.exports = app => {
     const UserSchema = new Schema({
         password:{ type:String },
         phone:{ type:String },
+        userName:{ type:String },
         add_time:{
             type:Number,
             default:d.getTime()
