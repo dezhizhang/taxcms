@@ -4,7 +4,6 @@ const Controller = require('egg').Controller;
 class TaxController extends Controller {
     async index() {
         let result = await this.ctx.model.Tax.find()
-        console.log(result);
         await this.ctx.render("/admin/tax/index",{
             list:result
         })
