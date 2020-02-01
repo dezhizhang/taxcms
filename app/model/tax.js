@@ -5,19 +5,17 @@ module.exports = app => {
     const d = new Date();
     const TaxSchema = new Schema({
         company_img:{ type:String },
-        companyName:{ type:String },
-        socialCode:{ type:String },
+        company_name:{ type:String },
+        social_code:{ type:String },
         address:{ type:String },
+        phone:{ type:String },
         contact:{ type:String },
         tax_id:{ type:Schema.Types.ObjectId },
-        inform_time:{
-            type:Number,
-            default:d.getTime()
-        },
+        inform_time:{ type:String },
         description:{ type:String },
         status:{
             type:Number,
-            default:1  //1表示未完成,2表示完成
+            default:0  //0表示未完成,1表示完成
         },
         add_time:{
             type:Number,

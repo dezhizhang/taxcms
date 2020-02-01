@@ -109,6 +109,8 @@ module.exports = app => {
   router.get("/api/v1/company/user/info",controller.api.user.userInfo);
   //联系我们
   router.get('/api/v1/contact/list',controller.api.contact.index);
+  //报税信息
+  router.post('/api/v1/tax/upload',controller.api.tax.upload);
   
 
   

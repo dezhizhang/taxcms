@@ -11,20 +11,43 @@
                         <table class="table table-bordered">
                             <thead>                                   
                             <tr class="th">
-                                <th>企业名称</th>  
+                                <th>企业名称</th>
+                                <th>企业图片</th>  
                                 <th>社会信用代码</th>
                                 <th>注册地址</th>
                                 <th>联系人</th>
                                 <th>手机号</th>
-                                <th>提交时间</th>
                                 <th>报税时间</th>
+                                <th>提交时间</th>
+                              
                                 <th>状态</th>
-                                <th>描述</th>
                                 <th class="text-center">操作</th>
                             </tr>
                             </thead>
                             <tbody>
-                               
+                               <%for(let i=0;i < list.length;i++) {%>
+                                <tr>
+                                    <td><%=list[i].company_name%></td>
+                                    <td><img style="width:60px;height:40px" src="<%=list[i].company_img%>"/></td>
+                                    <td><%=list[i].social_code%></td>
+                                    <td><%=list[i].address%></td>
+                                    <td><%=list[i].contact%></td>
+                                    <td><%=list[i].phone%></td>
+                                    <td><%=list[i].inform_time%></td>
+                                    <td><%=helper.formatTime(list[i].add_time)%></td>
+                                    <td class="text-center">
+                                        <%if(list[i].status == 1){%>
+                                            <img src="/public/admin/images/yes.gif" onclick="app.changeStatus(this,'Tax','status','<%=list[i]._id%>')"/>
+                                        <%} else{%>
+                                            <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'Tax','status','<%=list[i]._id%>')"/>
+                                        <%}%>
+                                    </td> 
+                                    <td class="text-center">
+                                        <a href="/admin/manager/edit?id=<%=list[i]._id%>">修改</a> | 
+                                        <a class="delete" href="/admin/manager/delete?id=<%=list[i]._id%>&model=Admin">删除</a>
+                                    </td>   
+                                </tr>
+                               <%}%>
                             </tbody>
                         </table>
                         <div id="page" class="pagination" style="float: right;"></div>
