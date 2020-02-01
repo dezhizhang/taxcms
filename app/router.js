@@ -68,6 +68,9 @@ module.exports = app => {
   router.get("/admin/contact",controller.admin.contact.index);
   router.get("/admin/contact/add",controller.admin.contact.add);
   router.post("/admin/contact/doAdd",controller.admin.contact.doAdd);
+  router.get("/admin/contact/edit",controller.admin.contact.edit);
+  router.get("/admin/contact/delete",controller.admin.base.delete);
+  router.post("/admin/contact/doEdit",controller.admin.contact.doEdit);
 
   //用户管理
   router.get("/admin/user",controller.admin.user.index);

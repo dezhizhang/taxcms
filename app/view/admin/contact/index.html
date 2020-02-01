@@ -5,10 +5,7 @@
             <%- include ../public/aside.html %>        		
         </div>
         <div class="col-sm-10">
-            <div class="panel panel-default">              
-			    <div class="panel-heading">
-                    产品列表
-                </div>
+            <div>
                 <div class="panel-body">
                     <div class="table-responsive input-form">
                         <table class="table table-bordered">
@@ -19,7 +16,7 @@
                                 <th>邮箱</th>
                                 <th>电话</th>
                                 <th>排序</th>
-                                <td>增加时间</td>
+                                <th>增加时间</th>
                                 <th class="text-center">操作</th>
                             </tr>
                             </thead>
@@ -32,11 +29,10 @@
                                         <td><%=list[i].email%></td>
                                         <td><%=list[i].mobile%></td>
                                         <td><%=list[i].sort%></td>
-                                        <th><%=list[i].add_time%></th>
-                                                    
+                                        <td><%=helper.formatTime(list[i].add_time)%></td>         
                                         <td class="text-center">
-                                            <a href="/admin/contact/edit?id=<%=list[i]._id%>">修改</a> 　
-                                            <a class="delete" href="/admin/role/delete?model=Role&id=<%=list[i]._id%>">删除</a>
+                                            <a href="/admin/contact/edit?id=<%=list[i]._id%>">修改</a> | 
+                                            <a class="delete" href="/admin/contact/delete?model=Contact&id=<%=list[i]._id%>">删除</a>
                                         </td>
                                     </tr>
                                 <%}%>
