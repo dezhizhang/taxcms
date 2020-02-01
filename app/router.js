@@ -104,6 +104,8 @@ module.exports = app => {
   router.get("/api/v1/company/detail",controller.api.company.detail);
   //获取用户信息
   router.get("/api/v1/company/user/info",controller.api.user.userInfo);
+  //联系我们
+  router.get('/api/v1/contact/list',controller.api.contact.index);
 
   
   
