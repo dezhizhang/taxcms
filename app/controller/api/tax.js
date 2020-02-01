@@ -30,6 +30,24 @@ class TaxController extends Controller {
             data:null
         }
     }
+    async list() {
+        let { tax_id } = this.ctx.query;
+        if(tax_id) {
+            let result =await this.ctx.model.Tax.find({'tax_id':tax_id});
+            this.ctx.body = {
+                code:200,
+                msg:"SUCCESS",
+                data:result
+            }
+        } else {
+            this.ctx.body = {
+                code:400,
+                msg:"传入的参数有误",
+                data:null
+            }
+        }
+
+    }
 
 }
 
