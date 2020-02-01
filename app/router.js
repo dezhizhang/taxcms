@@ -82,6 +82,9 @@ module.exports = app => {
   router.get("/admin/company/delete",controller.admin.base.delete);
   router.get("/admin/company/edit",controller.admin.company.edit);
   router.post("/admin/company/doEdit",controller.admin.company.doEdit);
+  
+  //报税管理
+  router.get("/admin/tax",controller.admin.tax.index);
 
   //小程序接口
   //轮播图
@@ -106,6 +109,7 @@ module.exports = app => {
   router.get("/api/v1/company/user/info",controller.api.user.userInfo);
   //联系我们
   router.get('/api/v1/contact/list',controller.api.contact.index);
+  
 
   
   
