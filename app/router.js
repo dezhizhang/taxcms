@@ -64,6 +64,10 @@ module.exports = app => {
   router.get("/admin/advert/edit",controller.admin.advert.edit);
   router.post("/admin/advert/doEdit",controller.admin.advert.doEdit);
 
+  //联系我们
+  router.get("/admin/contact",controller.admin.contact.index);
+  router.get("/admin/contact/add",controller.admin.contact.add);
+
   //用户管理
   router.get("/admin/user",controller.admin.user.index);
   

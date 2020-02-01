@@ -8,6 +8,9 @@ class ContactController extends BaseController {
             list:result
         });
     }
+    async add() {
+        await this.ctx.render("/admin/contact/add")
+    }
     //修改
     async edit() {
         let id = this.ctx.query.id;
