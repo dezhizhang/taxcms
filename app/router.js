@@ -67,6 +67,7 @@ module.exports = app => {
   //联系我们
   router.get("/admin/contact",controller.admin.contact.index);
   router.get("/admin/contact/add",controller.admin.contact.add);
+  router.post("/admin/contact/doAdd",controller.admin.contact.doAdd);
 
   //用户管理
   router.get("/admin/user",controller.admin.user.index);

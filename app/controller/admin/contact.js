@@ -11,6 +11,13 @@ class ContactController extends BaseController {
     async add() {
         await this.ctx.render("/admin/contact/add")
     }
+    async doAdd() {
+        let result = this.ctx.request.body;
+        let contact = new this.ctx.model.Contact(result)
+        await contact.save()
+        await this.success('/admin/contact','增加联系成功');
+ 
+    }
     //修改
     async edit() {
         let id = this.ctx.query.id;

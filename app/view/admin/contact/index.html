@@ -14,32 +14,26 @@
                         <table class="table table-bordered">
                             <thead>                                   
                             <tr class="th">
-                                <th>姓名</th>
-                                <th>手机号</th>  
                                 <th>微信</th>
-                                <th>行业</th>
-                                <th>预算</th>
-                                <th>提交时间</th>
-                                <th>状态</th>
+                                <th>QQ</th>
+                                <th>邮箱</th>
+                                <th>电话</th>
+                                <th>排序</th>
+                                <td>增加时间</td>
                                 <th class="text-center">操作</th>
                             </tr>
                             </thead>
                             <tbody>
                                 <%for(let i=0;i<list.length;i++){%>
                                     <tr>
-                                        <td><%=list[i].username%></td>
+                                      
                                         <td><%=list[i].mobile%></td>
-                                        <td><%=list[i].wechat%></td>
-                                        <td><%=list[i].industry%></td>
-                                        <td><%=list[i].budget%></td>
+                                        <td><%=list[i].qq%></td>
+                                        <td><%=list[i].email%></td>
+                                        <td><%=list[i].mobile%></td>
+                                        <td><%=list[i].sort%></td>
                                         <th><%=list[i].add_time%></th>
-                                        <td class="text-center">
-                                            <%if(list[i].status == 1){%>
-                                                <img src="/public/admin/images/yes.gif" onclick="app.changeStatus(this,'Contact','status','<%=list[i]._id%>')"/>
-                                            <%} else{%>
-                                                <img src="/public/admin/images/no.gif" onclick="app.changeStatus(this,'Contact','status','<%=list[i]._id%>')"/>
-                                            <%}%>
-                                        </td>                   
+                                                    
                                         <td class="text-center">
                                             <a href="/admin/contact/edit?id=<%=list[i]._id%>">修改</a> 　
                                             <a class="delete" href="/admin/role/delete?model=Role&id=<%=list[i]._id%>">删除</a>

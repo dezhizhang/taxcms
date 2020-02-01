@@ -11,13 +11,12 @@
                 </div>
                 <div class="panel-body">
                     <div class="table-responsive input-form">
-                        <form action="/admin/contact/doAdd?_csrf=<%=csrf%>" method="post" enctype="multipart/form-data">
+                        <form action="/admin/contact/doAdd?_csrf=<%=csrf%>" method="post">
                             <ul>
-                                
-                                <li>  微　　信: <input type="text" name="name"/></li>
-                                <li>  Q　　 Q:  <input type="text" name="name"/></li>
-                                <li>  邮　　箱: <input type="text" name="name"/></li>
-                                <li>  电　　话: <input type="text" name="name"/></li>
+                                <li>  微　　信: <input type="text" name="wechat"/></li>
+                                <li>  Q　　  Q:  <input type="text" name="qq"/></li>
+                                <li>  邮　　箱: <input type="text" name="email"/></li>
+                                <li>  电　　话: <input type="text" name="mobile"/></li>
                                 <li>  排　　序: <input type="text" name="sort" value="100"/></li>
                                 <li>
                                     <br/>
