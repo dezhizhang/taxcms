@@ -113,6 +113,8 @@ module.exports = app => {
   router.post('/api/v1/tax/upload',controller.api.tax.upload);
   //报税列表
   router.get("/api/v1/tax/list",controller.api.tax.list);
+  //报税状态
+  router.get("/api/v1/tax/info",controller.api.tax.info);
   
 
   

@@ -48,6 +48,38 @@ class TaxController extends Controller {
         }
 
     }
+    async info() {
+        let { tax_id } = this.ctx.query;
+        if(tax_id) { 
+            let list =await this.ctx.model.Tax.find({'tax_id':tax_id});
+            let notTax = 0;
+            let complete = 0;
+            let total = list.length;
+           
+            for(let i=0;i < list.length;i++) {
+                if(list[i].status == 0) {
+                    notTax++;
+                } else if(list[i].status == 1) {
+                    complete++;
+                }
+            }
+            this.ctx.body = {
+                code:200,
+                msg:'SUCCESS',
+                data:{
+                    notTax,
+                    complete,
+                    total
+                }
+            }
+        } else {
+            this.ctx.body = {
+                code:404,
+                msg:"传入的参数有误",
+                data:null
+            }
+        }
+    }
 
 }
 
