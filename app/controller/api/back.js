@@ -1,13 +1,13 @@
 'use strict';
 
 const Controller = require('egg').Controller;
-class FeedBackController extends Controller {
+class BackController extends Controller {
     async add() {
         console.log(this.ctx.request.body);
 
         let { email,description} = this.ctx.request.body;
         if(email) {
-            let result = new this.ctx.model.FeedBack({"email":email,"description":description});
+            let result = new this.ctx.model.Back({"email":email,"description":description});
             this.ctx.body = {
                 code:200,
                 msg:"提交反馈成功",
@@ -26,4 +26,4 @@ class FeedBackController extends Controller {
 
 }
 
-module.exports = FeedBackController;
+module.exports = BackController;

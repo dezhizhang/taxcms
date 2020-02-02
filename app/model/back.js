@@ -3,7 +3,7 @@ module.exports = app => {
     const mongoose = app.mongoose;
     const Schema = mongoose.Schema;
     const d = new Date();
-    const FeedBackSchema = new Schema({
+    const BackSchema = new Schema({
         email:{ type:String },
         description:{ type:String },
         add_time:{
@@ -12,5 +12,5 @@ module.exports = app => {
         }
 
     });
-    return mongoose.model('FeedBack',FeedBackSchema,'feedback');
+    return mongoose.model('Back',BackSchema,'back');
 }
