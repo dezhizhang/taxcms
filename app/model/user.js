@@ -6,20 +6,8 @@ module.exports = app => {
     const UserSchema = new Schema({
         password:{ type:String },
         phone:{ type:String },
-        userName:{ type:String },
-        companyName:{ type:String },
-        socialCode:{ type:String },
-        address:{ type:String },
-        contact:{ type:String },
-        inform_time:{
-            type:Number,
-            default:d.getTime()
-        },
-        description:{ type:String },
-        status:{
-            type:Number,
-            default:1  //1表示未完成,2表示完成
-        },
+        user_name:{ type:String },
+        user_img:{ type:String },
         add_time:{
             type:Number,
             default:d.getTime()

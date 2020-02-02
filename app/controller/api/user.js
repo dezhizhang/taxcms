@@ -1,13 +1,12 @@
 'use strict';
+const fs=require('fs');
+const pump = require('mz-modules/pump');
 const Core = require('@alicloud/pop-core');
 const Controller = require('egg').Controller;
-
 class UserController extends Controller {
     async code() {
         let code = Math.random().toString().slice(-6);
         await this.app.redis.set("phone_code",code);
-       
-        
         let { phone } = this.ctx.query;
         let client = new Core({
             accessKeyId: 'LTAI4FnT1q6ZHvd7SXB1MtgF',
@@ -129,6 +128,39 @@ class UserController extends Controller {
             }
         }
         
+    }
+    //修改用户信息
+    async edit() {
+        
+        let parts = this.ctx.multipart({ autoFields: true });
+        let files = {};               
+        let stream;
+        while ((stream = await parts()) != null) {
+            if (!stream.filename) {          
+              break;
+            }       
+            let fieldname = stream.fieldname;  //file表单的名字
+            //上传图片的目录
+            let dir=await this.service.tools.getUploadFile(stream.filename);
+            let target = dir.uploadDir;
+            let writeStream = fs.createWriteStream(target);
+            await pump(stream, writeStream);  
+            files=Object.assign(files,{
+              [fieldname]:dir.saveDir    
+            })
+            
+        }      
+        //修改操作
+        let id=parts.field.id;
+        let updateResult=Object.assign(files,parts.field);
+        let result =await this.ctx.model.User.updateOne({"_id":id},updateResult);
+        this.ctx.body = {
+            code:200,
+            msg:"修改用户成功",
+            data:null
+            
+        }
+       
     }
 
 }

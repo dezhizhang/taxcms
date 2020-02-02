@@ -101,6 +101,8 @@ module.exports = app => {
   router.post("/api/v1/user/register",controller.api.user.add);
   //用户登录
   router.post("/api/v1/user/login",controller.api.user.login);
+  //修改用户信息
+  router.post("/api/v1/user/edit",controller.api.user.edit);
   //公司列表
   router.get("/api/v1/company/list",controller.api.company.index);
   //公司详情
