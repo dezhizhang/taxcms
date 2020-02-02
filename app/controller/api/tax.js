@@ -31,13 +31,22 @@ class TaxController extends Controller {
         }
     }
     async list() {
-        let { tax_id } = this.ctx.query;
-        if(tax_id) {
-            let result =await this.ctx.model.Tax.find({'tax_id':tax_id});
-            this.ctx.body = {
-                code:200,
-                msg:"SUCCESS",
-                data:result
+        let { tax_id,status } = this.ctx.query;
+        if(tax_id && status) {
+            if(status == 'all') {
+                let result =await this.ctx.model.Tax.find({'tax_id':tax_id});
+                this.ctx.body = {
+                    code:200,
+                    msg:"SUCCESS",
+                    data:result
+                }
+            } else {
+                let result =await this.ctx.model.Tax.find({'tax_id':tax_id,'status':status});
+                this.ctx.body = {
+                    code:200,
+                    msg:"SUCCESS",
+                    data:result
+                }
             }
         } else {
             this.ctx.body = {
@@ -55,7 +64,6 @@ class TaxController extends Controller {
             let notTax = 0;
             let complete = 0;
             let total = list.length;
-           
             for(let i=0;i < list.length;i++) {
                 if(list[i].status == 0) {
                     notTax++;
