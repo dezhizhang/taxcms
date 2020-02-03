@@ -75,6 +75,8 @@ module.exports = app => {
   //用户管理
   router.get("/admin/user",controller.admin.user.index);
   router.get("/admin/user/edit",controller.admin.user.edit);
+  router.post("/admin/user/doEdit",controller.admin.user.doEdit);
+  router.get("/admin/user/delete",controller.admin.base.delete);
   
   //公司管理
   router.get("/admin/company",controller.admin.company.index);
