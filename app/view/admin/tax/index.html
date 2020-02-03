@@ -43,8 +43,8 @@
                                         <%}%>
                                     </td> 
                                     <td class="text-center">
-                                        <a href="/admin/manager/edit?id=<%=list[i]._id%>">修改</a> | 
-                                        <a class="delete" href="/admin/manager/delete?id=<%=list[i]._id%>&model=Admin">删除</a>
+                                        <a href="/admin/tax/edit?id=<%=list[i]._id%>">修改</a> | 
+                                        <a class="delete" href="/admin/tax/delete?id=<%=list[i]._id%>&model=Tax">删除</a>
                                     </td>   
                                 </tr>
                                <%}%>
@@ -52,9 +52,7 @@
                         </table>
                         <div id="page" class="pagination" style="float: right;"></div>
                         <script type="text/javascript">
-                           
                             $('#page').jqPaginator({
-                             
                                 totalPages: 100,
                                 visiblePages: 8,
                                 currentPage:  1,
