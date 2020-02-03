@@ -8,6 +8,15 @@ class UserController extends BaseController {
             list:result
         })
     }
+    async edit() {
+        let { id } = this.ctx.query;
+        console.log(id);
+        
+        let result = await this.ctx.model.User.find({"_id":id});
+        await this.ctx.render("/admin/user/edit",{
+            list:result[0]
+        })
+    }
 
    
     
