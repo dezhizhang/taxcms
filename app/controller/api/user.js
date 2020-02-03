@@ -103,7 +103,7 @@ class UserController extends Controller {
            
         } else {
             this.ctx.body = {
-                code:400,
+                code:200,
                 msg:'你还没有注册',
                 data:null,
                 isReg:false
