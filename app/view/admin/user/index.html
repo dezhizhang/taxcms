@@ -12,20 +12,25 @@
                             <thead>                                   
                             <tr class="th">
                                 <th>呢称</th>
-                                <th>企业名称</th>  
-                                <th>社会信用代码</th>
-                                <th>注册地址</th>
-                                <th>联系人</th>
+                                <th>头像</th>  
                                 <th>手机号</th>
                                 <th>提交时间</th>
-                                <th>报税时间</th>
-                                <th>状态</th>
-                                <th>描述</th>
                                 <th class="text-center">操作</th>
                             </tr>
                             </thead>
                             <tbody>
-                               
+                               <%for(let i=0;i < list.length;i++) {%>
+                                    <tr>
+                                        <td><%=list[i].user_name%></td>
+                                        <td><img style="width: 120px; height: 40px;" src="<%=list[i].user_img%>"/></td>
+                                        <td><%=list[i].phone%></td>
+                                        <td><%=helper.formatTime(list[i].add_time)%></td>
+                                        <td class="text-center">
+                                            <a href="/admin/user/edit?id=<%=list[i]._id%>">修改</a> | 
+                                            <a class="delete" href="/admin/user/delete?id=<%=list[i]._id%>&model=User">删除</a>
+                                        </td>   
+                                    </tr>
+                               <%}%>
                             </tbody>
                         </table>
                         <div id="page" class="pagination" style="float: right;"></div>
