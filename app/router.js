@@ -89,6 +89,7 @@ module.exports = app => {
   //报税管理
   router.get("/admin/tax",controller.admin.tax.index);
   router.get("/admin/tax/delete",controller.admin.base.delete);
+  router.get("/admin/tax/edit",controller.admin.tax.edit);
 
   //小程序接口
   //轮播图

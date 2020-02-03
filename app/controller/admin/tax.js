@@ -35,7 +35,13 @@ class TaxController extends Controller {
             data:null
         }
     }
-
+    async edit() {
+        let { id } = this.ctx.query;
+        let result = await this.ctx.model.Tax({"_id":id});
+        await this.ctx.render("/admin/tax/edit",{
+            list:result[0]
+        })
+    }
 }
 
 module.exports = TaxController;
