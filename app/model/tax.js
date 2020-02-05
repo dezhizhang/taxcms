@@ -12,7 +12,6 @@ module.exports = app => {
         contact:{ type:String },
         tax_id:{ type:Schema.Types.ObjectId },
         inform_time:{ type:String },
-        description:{ type:String },
         status:{
             type:Number,
             default:0  //0表示未完成,1表示完成
