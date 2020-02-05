@@ -1,7 +1,8 @@
 'use strict';
-
-const Controller = require('egg').Controller;
-class TaxController extends Controller {
+const fs=require('fs');
+const pump = require('mz-modules/pump');
+const BaseController = require('./base');
+class TaxController extends BaseController {
     async index() {
         let result = await this.ctx.model.Tax.find()
         await this.ctx.render("/admin/tax/index",{
@@ -48,7 +49,7 @@ class TaxController extends Controller {
         let stream;
         while ((stream = await parts()) != null) {
             if (!stream.filename) {          
-                break;
+              break;
             }       
             let fieldname = stream.fieldname;  //file表单的名字
             //上传图片的目录
@@ -57,14 +58,15 @@ class TaxController extends Controller {
             let writeStream = fs.createWriteStream(target);
             await pump(stream, writeStream);  
             files=Object.assign(files,{
-                [fieldname]:dir.saveDir    
+              [fieldname]:dir.saveDir    
             })
-            await this.service.tools.jimpImg(target,200,200)
+            
         }      
+        //修改操作
         let id=parts.field.id;
         let updateResult=Object.assign(files,parts.field);
-        let product =await this.ctx.model.Tax.updateOne({'_id':id},updateResult);
-        await this.success('/admin/tax','修改报税成功'); 
+        let result =await this.ctx.model.Tax.updateOne({"_id":id},updateResult);
+        await this.success('/admin/tax','修改报税成功');
     }
 }
 
