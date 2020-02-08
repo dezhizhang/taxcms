@@ -28,7 +28,7 @@ class BackController extends BaseController {
     async doEdit() {
         let result = this.ctx.request.body;
         let id = result.id;
-        let back = await this.ctx.model.Contact.updateOne({'_id':id},result);
+        let back = await this.ctx.model.Back.updateOne({'_id':id},result);
         await this.success("/admin/back","修改反馈成功");
     }
     
