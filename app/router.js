@@ -92,6 +92,10 @@ module.exports = app => {
   router.get("/admin/tax/edit",controller.admin.tax.edit);
   router.post("/admin/tax/doEdit",controller.admin.tax.doEdit);
 
+  //意见反馈
+  router.get("/admin/back",controller.admin.back.index);
+  router.get("/admin/back/add",controller.admin.back.add);
+
   //小程序接口
   //轮播图
   router.get('/api/v1/focus',controller.api.focus.index);
