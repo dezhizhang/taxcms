@@ -1,11 +1,9 @@
 'use strict';
-const Controller = require('egg').Controller;
+const BaseController = require('./base');
 
-class BackController extends Controller {
+class BackController extends BaseController {
     async index() {
         let result = await this.ctx.model.Back.find();
-        console.log(result);
-
         await this.ctx.render("/admin/back/index",{
             list:result
         });
@@ -13,6 +11,12 @@ class BackController extends Controller {
     //增加
     async add() {
         await this.ctx.render("/admin/back/add")
+    }
+    async doAdd() {
+        let result = this.ctx.request.body;
+        let back = new this.ctx.model.Back(result)
+        await back.save();
+        await this.success("/admin/back","增加反馈成功");
     }
     
    
