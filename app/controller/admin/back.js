@@ -18,6 +18,19 @@ class BackController extends BaseController {
         await back.save();
         await this.success("/admin/back","增加反馈成功");
     }
+    async edit() {
+        let { id } = this.ctx.query;
+        let result = await this.ctx.model.Back.find({"_id":id});
+        await this.ctx.render("/admin/back/edit",{
+            list:result[0]
+        })
+    }
+    async doEdit() {
+        let result = this.ctx.request.body;
+        let id = result.id;
+        let back = await this.ctx.model.Contact.updateOne({'_id':id},result);
+        await this.success("/admin/back","修改反馈成功");
+    }
     
    
 }

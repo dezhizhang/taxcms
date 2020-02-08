@@ -96,6 +96,8 @@ module.exports = app => {
   router.get("/admin/back",controller.admin.back.index);
   router.get("/admin/back/add",controller.admin.back.add);
   router.post("/admin/back/doAdd",controller.admin.back.doAdd);
+  router.get("/admin/back/edit",controller.admin.back.edit);
+  router.post("/admin/back/doEdit",controller.admin.back.doEdit);
 
   //小程序接口
   //轮播图
