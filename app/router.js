@@ -127,6 +127,8 @@ module.exports = app => {
   router.get('/api/v1/contact/list',controller.api.contact.index);
   //报税信息
   router.post('/api/v1/tax/upload',controller.api.tax.upload);
+  //增加报税
+  router.post("/api/v1/tax/add",controller.api.tax.add);
   //报税列表
   router.get("/api/v1/tax/list",controller.api.tax.list);
   //报税状态
