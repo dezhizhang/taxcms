@@ -11,7 +11,6 @@ class UserController extends Controller {
             data:json
         }
     }
-
 }
 
 module.exports = UserController;

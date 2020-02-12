@@ -2,7 +2,14 @@
 const Controller = require('egg').Controller;
 class TaxController extends Controller {
     async add() {
-        
+        let result = this.ctx.request.body;
+        let data = new this.ctx.model.Tax(result);
+        await data.save();
+        this.ctx.body = {
+            code:200,
+            msg:'SUCCESS',
+            data:null
+        }
     }
     async list() {
         let { tax_id,status } = this.ctx.query;

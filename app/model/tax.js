@@ -4,14 +4,12 @@ module.exports = app => {
     const Schema = mongoose.Schema;
     const d = new Date();
     const TaxSchema = new Schema({
-        company_img:{ type:String },
         company_name:{ type:String },
         social_code:{ type:String },
         address:{ type:String },
         phone:{ type:String },
         contact:{ type:String },
-        tax_id:{ type:Schema.Types.ObjectId },
-        inform_time:{ type:String },
+        tax_id:{ type:String },
         status:{
             type:Number,
             default:0  //0表示未完成,1表示完成
