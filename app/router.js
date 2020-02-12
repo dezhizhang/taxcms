@@ -109,24 +109,14 @@ module.exports = app => {
   router.get("/api/v1/media/detail",controller.api.media.detail);
   //广告图
   router.get('/api/v1/advert/info',controller.api.advert.index);
-  //验证码
-  router.get("/api/v1/user/code",controller.api.user.code);
-  //用户注册
-  router.post("/api/v1/user/register",controller.api.user.add);
   //用户登录
   router.post("/api/v1/user/login",controller.api.user.login);
-  //修改用户信息
-  router.post("/api/v1/user/edit",controller.api.user.edit);
   //公司列表
   router.get("/api/v1/company/list",controller.api.company.index);
   //公司详情
   router.get("/api/v1/company/detail",controller.api.company.detail);
-  //获取用户信息
-  router.get("/api/v1/company/user/info",controller.api.user.userInfo);
   //联系我们
   router.get('/api/v1/contact/list',controller.api.contact.index);
-  //报税信息
-  router.post('/api/v1/tax/upload',controller.api.tax.upload);
   //增加报税
   router.post("/api/v1/tax/add",controller.api.tax.add);
   //报税列表
